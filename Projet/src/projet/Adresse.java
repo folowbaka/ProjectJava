@@ -16,7 +16,7 @@ public class Adresse {
         this.setNumero(numero);
         this.setRue(rue);
         this.setCp(cp);
-        this.setVille(ville);fgfhgf
+        this.setVille(ville);
     }
 
     public void setNumero(String numero) {
