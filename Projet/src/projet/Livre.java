@@ -10,5 +10,4 @@ package projet;
  * @author Ghiles
  */
 class Livre {
-    gggg
 }
