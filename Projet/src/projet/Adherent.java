@@ -39,4 +39,9 @@ public class Adherent {
             return false;
         }
     }
+    
+    public String toString()
+    {
+        return this.nom+" "+this.prenom+" ["+this.adresse.toString()+"] "+this.email+" "+this.profession+" "+this.nb_emprunt;
+    }
 }

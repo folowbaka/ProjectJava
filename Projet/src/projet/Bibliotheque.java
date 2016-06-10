@@ -3,21 +3,61 @@ package projet;
 import java.util.ArrayList;
 
 public class Bibliotheque {
-    ArrayList adherent;
-    ArrayList livre;
+    private ArrayList<Adherent> adherent;
+    private ArrayList<Livre> livre;
     
-    public void Bibliotheque()
+    public Bibliotheque()
     {
-        adherent=new ArrayList();
-        livre=new ArrayList();
+        adherent=new ArrayList<Adherent>();
+        livre=new ArrayList<Livre>();
+    }
+    
+    public void addLivre(Livre livre)
+    {
+        this.livre.add(livre);
+    }
+    
+    public void addAdherent(Adherent adherent)
+    {
+        this.adherent.add(adherent);
     }
     
     public int getNbLivre_Type(String type)
     {
-        int i=0;
+        int compteur=0;
         
-        Livre[] temp=(Livre[]) livre.toArray();
+        for(Livre livre_ : this.livre)
+        {
+            if (livre_.getCode1().equals(type))
+            {
+                compteur++;
+            }
+        }
         
-        return i;
+        return compteur;
+    }
+    
+    public String Livre_toString()
+    {
+        String result=new String();
+        
+        for(Livre livre_ : this.livre)
+        {
+            result+=livre_.toString()+"\n";
+        }
+        
+        return result;
+    }
+    
+    public String Adherent_toString()
+    {
+        String result=new String();
+        
+        for(Adherent adherent_ : this.adherent)
+        {
+            result+=adherent.toString()+"\n";
+        }
+        
+        return result;
     }
 }

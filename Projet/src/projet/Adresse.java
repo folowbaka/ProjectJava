@@ -45,6 +45,6 @@ public class Adresse {
     
     public String toString()
     {
-        return numero+rue+cp+ville;
+        return numero+" "+rue+" "+cp+" "+ville;
     }
 }
