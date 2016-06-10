@@ -10,8 +10,4 @@ package projet;
  * @author Ghiles
  */
 class Livre {
-<<<<<<< HEAD
-   
-=======
->>>>>>> bff5f57533ed95d43bf6b0bd681ee2a42d54d2c2
 }
