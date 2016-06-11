@@ -11,3 +11,22 @@ and open the template in the editor.
 {
     -fx-background-image:url("nazithug.jpg");
 }
+#menu-principal
+{
+    -fx-alignment:center;
+}
+#menu-principal .button
+{
+    -fx-font-size:2.5em;
+    -fx-padding:10 50 10 50;
+}
+
+#menu-principal .label
+{
+    -fx-font-size:40px;
+    -fx-text-fill:white;
+    -fx-font-weight:bold;
+    -fx-max-width:400px;
+    -fx-alignment:center;
+}
+
