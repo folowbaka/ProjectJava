@@ -21,34 +21,42 @@ class Livre {
         this.code2=bibli.getNbLivre_Type(this.getCode1())+1;
     }
 
-    public String getTitre() {
+    public String getTitre()
+    {
         return this.titre;
     }
 
-    public String[] getHauteur() {
+    public String[] getHauteur()
+    {
         return this.hauteur;
     }
 
-    public String getCode1() {
+    public String getCode1()
+    {
         return this.code1;
     }
     
-    public int getCode2() {
+    public int getCode2()
+    {
         return this.code2;
     }
     
-    public String getCode() {
+    public String getCode()
+    {
         return this.code1+String.valueOf(this.code2);
     }
-    public int getNb_exemplaire_total() {
+    public int getNb_exemplaire_total()
+    {
         return this.nb_exemplaire_total;
     }
 
-    public int getNb_exemplaire_dispo() {
+    public int getNb_exemplaire_dispo()
+    {
         return this.nb_exemplaire_dispo;
     }
     
-    public boolean decNb_exemplaire_dispo() {
+    public boolean decNb_exemplaire_dispo()
+    {
         if(this.nb_exemplaire_dispo>0)
         {
             this.nb_exemplaire_dispo--;

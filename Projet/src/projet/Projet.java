@@ -1,15 +1,8 @@
 
 package projet;
 
-/**
- *
- * @author Ghiles
- */
 public class Projet {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Bibliotheque bibli_test=new Bibliotheque();
         String[] hauteur={"Nikudan","param2","param3"};
@@ -25,6 +18,5 @@ public class Projet {
         adh_test.emprunter(livre_test);
         System.out.println(adh_test.toString());
         System.out.println(bibli_test.Livre_toString());
-    }
-    
+    }  
 }
