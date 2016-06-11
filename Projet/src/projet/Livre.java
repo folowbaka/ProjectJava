@@ -48,6 +48,15 @@ class Livre {
         return this.nb_exemplaire_dispo;
     }
     
+    public boolean decNb_exemplaire_dispo() {
+        if(this.nb_exemplaire_dispo>0)
+        {
+            this.nb_exemplaire_dispo--;
+            return true;
+        }
+        return false;
+    }
+    
     public String toString()
     {
         return "["+this.code1+"-"+String.format("%03d",this.code2)+"]"+this.titre+" : "+this.hauteur[0]+" "+String.valueOf(this.nb_exemplaire_dispo)+"/"+String.valueOf(this.nb_exemplaire_total);

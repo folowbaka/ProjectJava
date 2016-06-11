@@ -11,12 +11,12 @@ public class Adresse {
     private String cp;
     private String ville;
     
-    public void Addresse(String numero, String rue, String cp,String ville)
+    public Adresse(String numero, String rue, String cp,String ville)
     {
-        this.setNumero(numero);
-        this.setRue(rue);
-        this.setCp(cp);
-        this.setVille(ville);
+        this.numero=numero;
+        this.rue=rue;
+        this.cp=cp;
+        this.ville=ville;
     }
 
     public void setNumero(String numero) {

@@ -37,6 +37,11 @@ public class Bibliotheque {
         return compteur;
     }
     
+    public int getNbAdherent()
+    {
+        return this.adherent.size();
+    }
+    
     public String Livre_toString()
     {
         String result=new String();
