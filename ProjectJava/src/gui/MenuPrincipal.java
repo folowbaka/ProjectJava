@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package gui;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -45,12 +45,12 @@ public class MenuPrincipal extends GridPane{
         btnMe.setPrefSize(400, 50);
         this.setVgap(15);
         this.getChildren().addAll(titre,btnMl,btnMe);
-        this.setAlignment(Pos.CENTER);
         btnMl.setOnMousePressed(new EventHandler<MouseEvent>(){
             public void handle(MouseEvent me){
                 btnMl.getParent().setVisible(false);
                 ms.setVisible(true);
                 ms.getMl().setVisible(true);
+                ms.getMne().setVisible(false);
             }
         });
         
@@ -59,6 +59,7 @@ public class MenuPrincipal extends GridPane{
                 btnMe.getParent().setVisible(false);
                 ms.setVisible(true);
                 ms.getMne().setVisible(true);
+                ms.getMl().setVisible(false);
             }
         });
     }

@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package gui;
 
+import gui.MenuLecture;
+import gui.MenuEcriture;
 import javafx.scene.Parent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -27,11 +29,11 @@ public class MenuSecondaire  extends GridPane{
         this.setVisible(false);
     }
     
-    MenuEcriture getMne()
+    public MenuEcriture getMne()
     {
         return this.mne;
     }
-    MenuLecture getMl()
+    public MenuLecture getMl()
     {
         return this.ml;
     }

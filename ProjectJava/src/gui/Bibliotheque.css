@@ -9,11 +9,11 @@ and open the template in the editor.
 */
 .root
 {
-    -fx-background-image:url("nazithug.jpg");
+    -fx-background-image:url("/ressource/nazithug.jpg");
 }
 #menu-principal
 {
-    -fx-alignment:center;
+    -fx-alignment:CENTER_LEFT;
     -fx-max-width:400px;
 }
 #menu-principal .button
@@ -40,7 +40,7 @@ and open the template in the editor.
     -fx-max-width:300px;
     -fx-alignment:TOP_LEFT;
 }
-#menu-secondaire .button
+#menu-secondaire .toggle-button
 {
     -fx-font-size:2.5em;
     -fx-max-width:300px;
@@ -49,12 +49,35 @@ and open the template in the editor.
     -fx-border-color:black;
 
 }
-#menu-secondaire .button:hover
+.button:hover,.toggle-button:hover
+{
+    -fx-cursor:hand;
+}
+#navbar
+{
+    -fx-background-color:"2b2b2b";
+    -fx-font-size:2em;
+}
+#menu-secondaire .toggle-button:hover
 {
     -fx-background-color:"232222";
 }
-#menu-secondaire .button:pressed
+#menu-secondaire .toggle-button:selected
 {
     -fx-background-color:"2b2b2b";
+}
+#homebutton
+{
+    -fx-background-color:none;
+
+}
+#date
+{
+    -fx-font-size:2em;
+    -fx-text-fill:white;
+    -fx-max-width:200px;
+    -fx-max-height:80px;
+    -fx-alignment:CENTER_RIGHT;
+    -fx-font-weight:bold;
 }
 
