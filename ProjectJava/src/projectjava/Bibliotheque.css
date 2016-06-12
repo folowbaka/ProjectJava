@@ -14,6 +14,7 @@ and open the template in the editor.
 #menu-principal
 {
     -fx-alignment:center;
+    -fx-max-width:400px;
 }
 #menu-principal .button
 {
@@ -26,7 +27,26 @@ and open the template in the editor.
     -fx-font-size:40px;
     -fx-text-fill:white;
     -fx-font-weight:bold;
-    -fx-max-width:400px;
     -fx-alignment:center;
+    -fx-max-width:400px;
+}
+#menu-secondaire
+{
+    -fx-background-color:"2b2b2b";
+    -fx-max-width:300px;
+}
+#menu-lecture, #menu-ecriture
+{
+    -fx-max-width:300px;
+    -fx-alignment:TOP_LEFT;
+}
+#menu-secondaire .button
+{
+    -fx-font-size:2.5em;
+    -fx-max-width:300px;
+   -fx-background-color:"2b2b2b";
+    -fx-text-fill:white;
+    -fx-border-color:black;
+
 }
 

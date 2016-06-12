@@ -22,17 +22,18 @@ import javafx.stage.Stage;
  * @author david
  */
 public class ProjectJava extends Application {
-    
     @Override
     public void start(Stage primaryStage) {     
-        StackPane root = new StackPane();
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        BorderPane root = new BorderPane();
+        //Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
         double longueurScene=1280;
         double hauteurScene=900;
         Scene scene = new Scene(root,longueurScene,hauteurScene);
         primaryStage.setTitle("Bibliothèque");
-        MenuPrincipal mn=new MenuPrincipal();
-        root.getChildren().add(mn);
+        MenuSecondaire ms=new MenuSecondaire();
+        MenuPrincipal mn=new MenuPrincipal(ms);
+        root.setCenter(mn);
+        root.setLeft(ms);
         primaryStage.setScene(scene);
         scene.getStylesheets().add(ProjectJava.class.getResource("Bibliotheque.css").toExternalForm());
         primaryStage.show();
