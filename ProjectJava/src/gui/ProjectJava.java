@@ -8,6 +8,7 @@ package gui;
 import gui.MenuSecondaire;
 import gui.MenuPrincipal;
 import gui.ImageButton;
+import handler.HandlerButtonLecture;
 import handler.HandlerHome;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -36,8 +37,8 @@ import javafx.stage.Stage;
  */
 public class ProjectJava extends Application {
         private MenuSecondaire ms;
-        private MenuPrincipal mn;
-        
+        private PartieCentrale pc;
+        final int NB_CACHE=4;
         class NavBar extends BorderPane{
             private ImageButton home;
             private MenuSecondaire mss;
@@ -50,8 +51,14 @@ public class ProjectJava extends Application {
                 home.setId("homebutton");
                 Image imgHome=new Image("ressource/home.png");
                 home.setImages(imgHome);
-                Parent visible=mn;
-                Parent cache[]={ms};
+                Parent visible=pc.getMn();
+                Parent cache[]=new Parent[NB_CACHE];
+                cache[0]=ms;
+                for(int i=1;i<cache.length;i++)
+                {
+                    System.out.println(""+i);
+                    cache[i]=pc.getLe()[i-1];
+                }
                 home.setOnMousePressed(new HandlerHome(visible,cache));
                 this.setLeft(home);
                 Calendar c=Calendar.getInstance();
@@ -72,10 +79,12 @@ public class ProjectJava extends Application {
         Scene scene = new Scene(root,longueurScene,hauteurScene);
         primaryStage.setTitle("Bibliothèque");
         this.ms=new MenuSecondaire();
-        mn=new MenuPrincipal(ms);
-        BorderPane.setMargin(mn,new Insets(0,0,0,-200));
+        this.pc=new PartieCentrale(new MenuPrincipal(ms));
+        this.ms.getMl().getTg()[0].setOnMousePressed(new HandlerButtonLecture(0,this.pc));
+        this.ms.getMl().getTg()[1].setOnMousePressed(new HandlerButtonLecture(1,this.pc));
+        this.ms.getMl().getTg()[2].setOnMousePressed(new HandlerButtonLecture(2,this.pc));
         NavBar nv=new NavBar();
-        root.setCenter(mn);
+        root.setCenter(pc);
         root.setLeft(ms);
         root.setTop(nv);
         //primaryStage.setResizable(false);
