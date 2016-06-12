@@ -23,6 +23,7 @@ public class MenuSecondaire  extends GridPane{
     public MenuSecondaire()
     {
         this.setId("menu-secondaire");
+        this.setTranslateX(-300);
         mne=new MenuEcriture();
         ml=new MenuLecture();
         this.getChildren().addAll(ml,mne);

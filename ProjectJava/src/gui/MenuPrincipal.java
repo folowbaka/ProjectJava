@@ -5,6 +5,9 @@
  */
 package gui;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -21,6 +24,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
+import javafx.util.Duration;
 
 /**
  *
@@ -50,6 +54,11 @@ public class MenuPrincipal extends GridPane{
                 btnMl.getParent().setVisible(false);
                 ms.setVisible(true);
                 ms.getMl().setVisible(true);
+                final Timeline timeline = new Timeline();
+                final KeyValue kv = new KeyValue(ms.translateXProperty(),0);
+                final KeyFrame kf = new KeyFrame(Duration.millis(500), kv);
+                timeline.getKeyFrames().add(kf);
+                timeline.play();
                 ms.getMne().setVisible(false);
             }
         });
@@ -60,6 +69,11 @@ public class MenuPrincipal extends GridPane{
                 ms.setVisible(true);
                 ms.getMne().setVisible(true);
                 ms.getMl().setVisible(false);
+                final Timeline timeline = new Timeline();
+                final KeyValue kv = new KeyValue(ms.translateXProperty(), 0);
+                final KeyFrame kf = new KeyFrame(Duration.millis(500), kv);
+                timeline.getKeyFrames().add(kf);
+                timeline.play();
             }
         });
     }

@@ -6,9 +6,13 @@
 package handler;
 
 import gui.MenuSecondaire;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
+import javafx.util.Duration;
 
 /**
  *
@@ -28,12 +32,19 @@ public class HandlerHome  implements EventHandler {
     public void handle(Event event) {
         for(int i=0;i<cache.length;i++)
         {
-            cache[i].setVisible(false);
             if(cache[i] instanceof MenuSecondaire)
             {
+               
                ((MenuSecondaire)cache[i]).getMl().desactiver(); 
                ((MenuSecondaire)cache[i]).getMne().desactiver(); 
+                final Timeline timeline = new Timeline();
+                final KeyValue kv = new KeyValue(cache[i].translateXProperty(), -300);
+                final KeyFrame kf = new KeyFrame(Duration.millis(500), kv);
+                timeline.getKeyFrames().add(kf);
+                timeline.play();
             }
+            else
+                cache[i].setVisible(false);
         }
         visible.setVisible(true);
     }
