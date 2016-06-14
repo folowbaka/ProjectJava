@@ -83,7 +83,7 @@ public class ProjectJava extends Application {
         Scene scene = new Scene(root,longueurScene,hauteurScene);
         primaryStage.setTitle("Bibliothèque");
         this.bq=new Bibliotheque();
-        this.bq.addAdherent(new Adherent("1","Nikudan","Roule","azeaze@gmail.com","Grateur",new Adresse("29","rue des grateur","99999","Partout")));
+        this.bq.addAdherent(new Adherent(1,"Nikudan","Roule","azeaze@gmail.com","Grateur",new Adresse("29","rue des grateur","99999","Partout")));
         this.ms=new MenuSecondaire();
         this.pc=new PartieCentrale(new MenuPrincipal(ms),this.bq);
         this.ms.getMl().getTg()[0].setOnMousePressed(new HandlerButtonLecture(0,this.pc));

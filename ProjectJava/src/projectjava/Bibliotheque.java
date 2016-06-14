@@ -58,12 +58,11 @@ public class Bibliotheque implements Serializable {
     {
         return this.adherent.size();
     }
-<<<<<<< HEAD
     public ArrayList<Adherent> getListAdherent()
     {
         return this.adherent;
     }
-=======
+
     
     public int getID()
     {
@@ -155,7 +154,6 @@ public class Bibliotheque implements Serializable {
         return true;
     }
     
->>>>>>> 837ba2b9a691ea6cab81669cedf3b10d96f362d1
     public String Livre_toString()
     {
         String result=new String();
