@@ -62,6 +62,10 @@ public class Bibliotheque implements Serializable {
     {
         return this.adherent;
     }
+     public ArrayList<Livre> getListLivre()
+    {
+        return this.livre;
+    }
 
     
     public int getID()
@@ -238,6 +242,18 @@ public class Bibliotheque implements Serializable {
             }
         }
         
+        return resultat;
+    }
+   public ArrayList<Adherent> adherentRetardataire()
+    {
+        ArrayList<Adherent> resultat=new ArrayList<Adherent>();
+        for (Adherent adh:this.adherent)
+        {
+            if(adh.retard())
+            {
+                resultat.add(adh);
+            }
+        }
         return resultat;
     }
 }

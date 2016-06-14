@@ -118,6 +118,16 @@ public class Adherent implements Serializable {
         livre.decNb_exemplaire_dispo();
         return true;
     }
+    public boolean retard()
+    {
+        int i=0;
+        Calendar actuel=Calendar.getInstance();
+        while(i<this.emprunt_date.length && !actuel.after(this.getEmprunt_date()[i]))
+        {
+            i++;
+        }
+        return i<this.emprunt_date.length;
+    }
         
     public String toString()
     {

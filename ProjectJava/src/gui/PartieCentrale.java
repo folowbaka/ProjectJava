@@ -26,12 +26,14 @@ public class PartieCentrale extends StackPane {
             String nomColonne[]={"Nom","Prenom","@Mail","Profession"};
             String attribut[]={"nom","prenom","email","profession"};
             listeE=new ListeElement[3];
+            bq.getListAdherent().get(0).emprunter(bq.getListLivre().get(0));
             this.listeE[0]=new ListeElement("ADHERENT",nomColonne,attribut);
             this.listeE[0].setData(bq.getListAdherent());
              nomColonne[0]="Titre";nomColonne[1]="Auteur";
             this.listeE[1]=new ListeElement("Livre",nomColonne,attribut);
-            nomColonne[0]="Nom";nomColonne[1]="Prenom";
+            nomColonne[0]="Nom";nomColonne[1]="Prenom";nomColonne[2]="@Mail";nomColonne[3]="Profession";
             this.listeE[2]=new ListeElement("Retardataire",nomColonne,attribut);
+            this.listeE[2].setData(bq.adherentRetardataire());
             for(int i=0;i<listeE.length;i++)
             {
                this.listeE[i].setVisible(false);
