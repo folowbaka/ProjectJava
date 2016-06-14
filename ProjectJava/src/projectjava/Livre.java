@@ -1,7 +1,9 @@
 
 package projectjava;
 
-class Livre {
+import java.io.Serializable;
+
+class Livre implements Serializable {
     private String titre;
     private String[] hauteur=new String[3];
     private String code1;
@@ -26,9 +28,14 @@ class Livre {
         return this.titre;
     }
 
-    public String[] getHauteur()
+    public String[] getAuteur()
     {
         return this.hauteur;
+    }
+    
+    public String getAuteurS()
+    {
+        return this.hauteur[0]+" "+this.hauteur[1]+" "+this.hauteur[2];
     }
 
     public String getCode1()

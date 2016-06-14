@@ -1,7 +1,9 @@
 
 package projectjava;
 
-public class Adresse {
+import java.io.Serializable;
+
+public class Adresse implements Serializable {
     private String numero;
     private String rue;
     private String cp;
