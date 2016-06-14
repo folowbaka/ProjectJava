@@ -1,5 +1,5 @@
 
-package projet;
+package projectjava;
 
 public class Projet {
 
