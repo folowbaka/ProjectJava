@@ -23,7 +23,7 @@ public class PartieCentrale extends StackPane {
             this.mn=mn;
             StackPane.setMargin(this.mn,new Insets(0,0,0,-200));
             this.getChildren().add(this.mn);
-            String nomColonne[]={"Nom","Prenom","@mail","Profession"};
+            String nomColonne[]={"Nom","Prenom","@Mail","Profession"};
             String attribut[]={"nom","prenom","email","profession"};
             listeE=new ListeElement[3];
             this.listeE[0]=new ListeElement("ADHERENT",nomColonne,attribut);

@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 .root
 {
-    -fx-background-color:"bbbbbb";
+    -fx-background-image:url("/ressource/swag.gif");
 }
 #menu-principal
 {
@@ -82,12 +82,17 @@ and open the template in the editor.
 }
 #TableADHERENT
 {
-    -fx-max-width:800px;
+    -fx-max-width:900px;
     -fx-alignment:CENTER;
 }
 #TableADHERENT .label
 {
     -fx-font-size:20px;
+}
+#TableADHERENT .table-cell
+{
+    -fx-font-size:18px;
+    -fx-alignment: center;
 }
 #TitreTable
 {

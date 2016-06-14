@@ -37,9 +37,9 @@ public class Projet {
             System.out.println(elem.toString());
         }
         
-        System.out.println(bibli_test.saveBibliotheque("src\\ressource\\bibliotheque.bdd"));
+        System.out.println(bibli_test.saveBibliotheque("src\\ressource\\BDD.txt"));
         
-        Bibliotheque bibli_test2=loadBibliotheque("src\\ressource\\bibliotheque.bdd");
+        Bibliotheque bibli_test2=loadBibliotheque("src\\ressource\\BDD.txt");
         System.out.println(bibli_test2.Livre_toString());
     }  
 }

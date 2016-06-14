@@ -30,6 +30,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import projectjava.Adherent;
 import projectjava.Adresse;
 import projectjava.Bibliotheque;
@@ -82,8 +83,7 @@ public class ProjectJava extends Application {
         double hauteurScene=900;
         Scene scene = new Scene(root,longueurScene,hauteurScene);
         primaryStage.setTitle("Bibliothèque");
-        this.bq=new Bibliotheque();
-        this.bq.addAdherent(new Adherent(1,"Nikudan","Roule","azeaze@gmail.com","Grateur",new Adresse("29","rue des grateur","99999","Partout")));
+        this.bq=Bibliotheque.loadBibliotheque("src/ressource/BDD.txt");
         this.ms=new MenuSecondaire();
         this.pc=new PartieCentrale(new MenuPrincipal(ms),this.bq);
         this.ms.getMl().getTg()[0].setOnMousePressed(new HandlerButtonLecture(0,this.pc));
@@ -98,6 +98,13 @@ public class ProjectJava extends Application {
         
         scene.getStylesheets().add(ProjectJava.class.getResource("Bibliotheque.css").toExternalForm());
         primaryStage.show();
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+    @Override
+    public void handle(WindowEvent event) {
+        System.out.println("Walid Sauvegarde");
+        bq.saveBibliotheque("src/ressource/BDD.txt");
+    }
+});
         
     }
 

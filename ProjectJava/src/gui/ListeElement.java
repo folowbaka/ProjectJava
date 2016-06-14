@@ -35,7 +35,6 @@ public class ListeElement<T> extends VBox {
         for(int i=0;i<nomColonne.length;i++)
         {
             TableColumn tc=new TableColumn(nomColonne[i]);
-            tc.setResizable(false);
             tc.prefWidthProperty().bind(this.table.widthProperty().divide(nomColonne.length));
             tc.setCellValueFactory(new PropertyValueFactory<T,String>(attribut[i]));
             table.getColumns().add(tc);
