@@ -2,6 +2,8 @@
 package projectjava;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Bibliotheque {
     private ArrayList<Adherent> adherent;
@@ -41,6 +43,13 @@ public class Bibliotheque {
     public int getNbAdherent()
     {
         return this.adherent.size();
+    }
+    
+    public ArrayList<Adherent> get_adherent_alpha()
+    {
+        Collections.sort(this.adherent, (Adherent adh1, Adherent adh2) -> adh2.getPrenom().compareTo(adh2.getPrenom()));
+        
+        return this.adherent;
     }
     
     public String Livre_toString()
