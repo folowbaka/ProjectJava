@@ -1,7 +1,9 @@
 
 package projectjava;
 
-class Livre {
+import java.io.Serializable;
+
+class Livre implements Serializable {
     private String titre;
     private String[] hauteur=new String[3];
     private String code1;

@@ -1,8 +1,9 @@
 package projectjava;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Adherent {
+public class Adherent implements Serializable {
     private String id;
     private String nom;
     private String prenom;
@@ -13,9 +14,9 @@ public class Adherent {
     private int nb_emprunt;
     private Adresse adresse;
     
-    public Adherent(String id, String nom, String prenom, String email, String profession, Adresse adresse)
+    public Adherent(int id, String nom, String prenom, String email, String profession, Adresse adresse)
     {
-        this.setId(id);
+        this.setId(String.valueOf(id));
         this.setNom(nom);
         this.setPrenom(prenom);
         this.setEmail(email);
@@ -112,6 +113,6 @@ public class Adherent {
         
     public String toString()
     {
-        return this.getNom()+" "+this.getPrenom()+" ["+this.getAdresse().toString()+"] "+this.getEmail()+" "+this.getProfession()+" "+this.getNb_emprunt();
+        return this.getId()+" "+this.getNom()+" "+this.getPrenom()+" ["+this.getAdresse().toString()+"] "+this.getEmail()+" "+this.getProfession()+" "+this.getNb_emprunt();
     }
 }
