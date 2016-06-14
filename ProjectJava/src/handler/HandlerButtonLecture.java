@@ -25,7 +25,15 @@ public class HandlerButtonLecture implements EventHandler{
         @Override
         public void handle(Event event) {
              System.out.println(i);
-             pc.getLe()[i].setVisible(true);
+             for(int j=0;j<pc.getLe().length;j++)
+             {
+                if(j==i)
+                {
+                    pc.getLe()[j].setVisible(true);
+                }
+                else
+                   pc.getLe()[j].setVisible(false); 
+             }
         }
     
 }

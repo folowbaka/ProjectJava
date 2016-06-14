@@ -29,7 +29,7 @@ public class ListeElement<T> extends VBox {
         this.table=new TableView();
         table.setEditable(true);
         Label titreTable=new Label(nomTable);
-        this.setId("Table"+nomTable);
+        this.setId("listeElement");
         titreTable.setId("TitreTable");
         this.table.setEditable(true);
         for(int i=0;i<nomColonne.length;i++)
