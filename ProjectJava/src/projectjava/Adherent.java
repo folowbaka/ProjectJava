@@ -92,6 +92,14 @@ public class Adherent implements Serializable {
         this.adresse = adresse;
     }
     
+    public Livre[] getEmprunt_livre() {
+        return emprunt_livre;
+    }
+
+    public Calendar[] getEmprunt_date() {
+        return emprunt_date;
+    }
+    
     public boolean emprunter(Livre livre)
     {
         if (this.getNb_emprunt()>=3)
@@ -105,7 +113,7 @@ public class Adherent implements Serializable {
         
         this.emprunt_livre[this.getNb_emprunt()]=livre;
         this.emprunt_date[this.getNb_emprunt()]=Calendar.getInstance();
-        this.emprunt_date[this.getNb_emprunt()].add(Calendar.DAY_OF_MONTH, 15);
+        this.getEmprunt_date()[this.getNb_emprunt()].add(Calendar.DAY_OF_MONTH, 15);
         this.nb_emprunt++;
         livre.decNb_exemplaire_dispo();
         return true;

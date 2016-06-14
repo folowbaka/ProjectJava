@@ -91,7 +91,35 @@ public class Bibliotheque implements Serializable {
         
         return this.adherent;
     }
-   
+    
+    public ArrayList<Adherent> get_adherent_nalpha_nom()
+    {
+        Collections.sort(this.adherent, (Adherent adh1, Adherent adh2) -> adh2.getNom().compareTo(adh1.getNom()));
+        
+        return this.adherent;
+    }
+    
+    public ArrayList<Adherent> get_adherent_nalpha_prenom()
+    {
+        Collections.sort(this.adherent, (Adherent adh1, Adherent adh2) -> adh2.getPrenom().compareTo(adh1.getPrenom()));
+        
+        return this.adherent;
+    }
+    
+    public ArrayList<Adherent> get_adherent_ncroissant_id()
+    {
+        Collections.sort(this.adherent, (Adherent adh1, Adherent adh2) -> adh2.getId().compareTo(adh1.getId()));
+        
+        return this.adherent;
+    }
+    
+    public ArrayList<Adherent> get_adherent_nalpha_profession()
+    {
+        Collections.sort(this.adherent, (Adherent adh1, Adherent adh2) -> adh1.getProfession().compareTo(adh2.getProfession()));
+        
+        return this.adherent;
+    }
+    
     public static Bibliotheque loadBibliotheque(String file)
     {
         try {
@@ -105,6 +133,7 @@ public class Bibliotheque implements Serializable {
         
         return null;
     }
+    
     public boolean saveBibliotheque(String file)
     {
         ObjectOutputStream  writer;
@@ -142,5 +171,68 @@ public class Bibliotheque implements Serializable {
         }
         
         return result;
+    }
+    
+    public ArrayList<Adherent> search_possesseur_livre(Livre l)
+    {
+        ArrayList<Adherent> resultat=new ArrayList<Adherent>();
+        Livre[] temp;
+        
+        for (Adherent adh:this.adherent)
+        {
+            temp=adh.getEmprunt_livre();
+            
+            if(temp[0]!=null&&temp[0].getCode().equals(l.getCode())||temp[1]!=null&&temp[1].getCode().equals(l.getCode())||temp[2]!=null&&temp[2].getCode().equals(l.getCode()))
+            {
+                resultat.add(adh);
+            }
+        }
+        
+        return resultat;
+    }
+    
+    public ArrayList<Livre> search_livre_titre(String titre)
+    {
+        ArrayList<Livre> resultat=new ArrayList<Livre>();
+        
+        for (Livre livre_:this.livre)
+        {
+            if(livre_.getTitre().equals(titre))
+            {
+                resultat.add(livre_);
+            }
+        }
+        
+        return resultat;
+    }
+    
+    public ArrayList<Livre> search_livre_auteur(String auteur)
+    {
+        ArrayList<Livre> resultat=new ArrayList<Livre>();
+        
+        for (Livre livre_:this.livre)
+        {
+            if(livre_.getAuteurS().contains(auteur))
+            {
+                resultat.add(livre_);
+            }
+        }
+        
+        return resultat;
+    }
+    
+    public ArrayList<Adherent> search_adherent(String personne)
+    {
+        ArrayList<Adherent> resultat=new ArrayList<Adherent>();
+        
+        for (Adherent adh:this.adherent)
+        {
+            if(adh.getNom().contains(personne)||adh.getPrenom().contains(personne))
+            {
+                resultat.add(adh);
+            }
+        }
+        
+        return resultat;
     }
 }
