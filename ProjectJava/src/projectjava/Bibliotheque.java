@@ -42,7 +42,10 @@ public class Bibliotheque {
     {
         return this.adherent.size();
     }
-    
+    public ArrayList<Adherent> getListAdherent()
+    {
+        return this.adherent;
+    }
     public String Livre_toString()
     {
         String result=new String();

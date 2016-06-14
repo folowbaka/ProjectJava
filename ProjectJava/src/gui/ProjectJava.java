@@ -30,6 +30,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import projectjava.Adherent;
+import projectjava.Adresse;
+import projectjava.Bibliotheque;
 
 /**
  *
@@ -38,6 +41,7 @@ import javafx.stage.Stage;
 public class ProjectJava extends Application {
         private MenuSecondaire ms;
         private PartieCentrale pc;
+        private Bibliotheque bq;
         final int NB_CACHE=4;
         class NavBar extends BorderPane{
             private ImageButton home;
@@ -78,8 +82,10 @@ public class ProjectJava extends Application {
         double hauteurScene=900;
         Scene scene = new Scene(root,longueurScene,hauteurScene);
         primaryStage.setTitle("Bibliothèque");
+        this.bq=new Bibliotheque();
+        this.bq.addAdherent(new Adherent("1","Nikudan","Roule","azeaze@gmail.com","Grateur",new Adresse("29","rue des grateur","99999","Partout")));
         this.ms=new MenuSecondaire();
-        this.pc=new PartieCentrale(new MenuPrincipal(ms));
+        this.pc=new PartieCentrale(new MenuPrincipal(ms),this.bq);
         this.ms.getMl().getTg()[0].setOnMousePressed(new HandlerButtonLecture(0,this.pc));
         this.ms.getMl().getTg()[1].setOnMousePressed(new HandlerButtonLecture(1,this.pc));
         this.ms.getMl().getTg()[2].setOnMousePressed(new HandlerButtonLecture(2,this.pc));

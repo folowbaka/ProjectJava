@@ -8,6 +8,7 @@ package gui;
 import javafx.geometry.Insets;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import projectjava.Bibliotheque;
 
 /**
  *
@@ -16,19 +17,21 @@ import javafx.scene.layout.StackPane;
 public class PartieCentrale extends StackPane {
         private MenuPrincipal mn;
         private ListeElement[] listeE;
-        public PartieCentrale(MenuPrincipal mn)
+        public PartieCentrale(MenuPrincipal mn,Bibliotheque bq)
         {
             super();
             this.mn=mn;
             StackPane.setMargin(this.mn,new Insets(0,0,0,-200));
             this.getChildren().add(this.mn);
-            String nomColonne[]={"Nom","Prenom"};
+            String nomColonne[]={"Nom","Prenom","@mail","Profession"};
+            String attribut[]={"nom","prenom","email","profession"};
             listeE=new ListeElement[3];
-            this.listeE[0]=new ListeElement("Adherent",nomColonne);
+            this.listeE[0]=new ListeElement("ADHERENT",nomColonne,attribut);
+            this.listeE[0].setData(bq.getListAdherent());
              nomColonne[0]="Titre";nomColonne[1]="Auteur";
-            this.listeE[1]=new ListeElement("Livre",nomColonne);
+            this.listeE[1]=new ListeElement("Livre",nomColonne,attribut);
             nomColonne[0]="Nom";nomColonne[1]="Prenom";
-            this.listeE[2]=new ListeElement("Retardataire",nomColonne);
+            this.listeE[2]=new ListeElement("Retardataire",nomColonne,attribut);
             for(int i=0;i<listeE.length;i++)
             {
                this.listeE[i].setVisible(false);
