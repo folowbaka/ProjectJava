@@ -42,7 +42,7 @@ and open the template in the editor.
 }
 #menu-secondaire .toggle-button
 {
-    -fx-font-size:2.5em;
+    -fx-font-size:30px;
     -fx-max-width:300px;
    -fx-background-color:"3c3f41";
     -fx-text-fill:white;
