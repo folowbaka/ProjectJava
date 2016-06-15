@@ -82,13 +82,12 @@ and open the template in the editor.
 }
 #listeElement
 {
-    -fx-max-width:900px;
     -fx-max-height:900px;
     -fx-alignment:CENTER;
 }
 #listeElement .table-view
 {
-    -fx-min-height:500px;
+    -fx-min-height:750px;
 }
 #listeElement .label
 {

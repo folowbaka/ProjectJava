@@ -5,16 +5,25 @@ import java.io.Serializable;
 
 public class Livre implements Serializable {
     private String titre;
-    private String hauteur;
+    private String auteur;
     private String code1;
     private int nb_exemplaire_total;
     private int nb_exemplaire_dispo;
     private int code2;
-
-    public Livre(String titre, String hauteur, String code1, int nb_exemplaire, Bibliotheque bibli)
+    
+     public Livre()
+    {
+        this.titre=null;
+        this.auteur=null;
+        this.code1=null;
+        this.nb_exemplaire_total=0;
+        this.nb_exemplaire_dispo=0;
+        this.code2=0;
+    }
+    public Livre(String titre, String auteur, String code1, int nb_exemplaire, Bibliotheque bibli)
     {
         this.titre=titre;
-        this.hauteur=hauteur;
+        this.auteur=auteur;
         this.code1=code1;
         this.nb_exemplaire_total=nb_exemplaire;
         this.nb_exemplaire_dispo=this.getNb_exemplaire_total();
@@ -28,12 +37,12 @@ public class Livre implements Serializable {
 
     public String getAuteur()
     {
-        return this.hauteur;
+        return this.auteur;
     }
     
     public String getAuteurS()
     {
-        return this.hauteur;
+        return this.auteur;
     }
 
     public String getCode1()
@@ -72,6 +81,6 @@ public class Livre implements Serializable {
     
     public String toString()
     {
-        return "["+this.code1+"-"+String.format("%03d",this.code2)+"]"+this.titre+" : "+this.hauteur+" "+String.valueOf(this.nb_exemplaire_dispo)+"/"+String.valueOf(this.nb_exemplaire_total);
+        return "["+this.code1+"-"+String.format("%03d",this.code2)+"]"+this.titre+" : "+this.auteur+" "+String.valueOf(this.nb_exemplaire_dispo)+"/"+String.valueOf(this.nb_exemplaire_total);
     }
 }

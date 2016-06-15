@@ -43,7 +43,7 @@ public class ProjectJava extends Application {
         private MenuSecondaire ms;
         private PartieCentrale pc;
         private Bibliotheque bq;
-        final int NB_CACHE=4;
+        final int NB_CACHE=5;
         class NavBar extends BorderPane{
             private ImageButton home;
             private MenuSecondaire mss;

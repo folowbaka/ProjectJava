@@ -16,6 +16,7 @@ public class Projet {
         bibli_test.addLivre(new Livre("Walid Adventure3","Doritos","HEN",1,bibli_test));
         bibli_test.addAdherent(adh_test);
         bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Abdellah","Ghiles","azeaze@gmail.com","Bananier",new Adresse("29","rue des grateur","99999","Partout")));
+        bibli_test.getListAdherent().get(0).emprunterRetard(bibli_test.getListLivre().get(0));
         bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Galente","David","fsdf@gmail.com","Plombier",new Adresse("29","rue des grateur","99999","Partout")));
         bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Dieu","Arnaud","xcvxc@gmail.com","Coiffeur",new Adresse("29","rue des grateur","99999","Partout")));
         bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Boyer","Guyaume","fgdgfdgtr@gmail.com","Sodomite",new Adresse("29","rue des grateur","99999","Partout")));

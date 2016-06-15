@@ -29,9 +29,9 @@ public class MenuLecture extends VBox{
         this.setId("menu-lecture");
         tg=new ToggleButton[NB_BUTTON];
         tg[0]=new ToggleButton("Adherent");
-        tg[1]=new ToggleButton("Livre");
-        tg[2]=new ToggleButton("Emprunt");
-        tg[3]=new ToggleButton("Retard");
+        tg[1]=new ToggleButton("Retard");
+        tg[2]=new ToggleButton("Livre");
+        tg[3]=new ToggleButton("Emprunt");
         tg[4]=new ToggleButton("Recherche");
 
         ToggleGroup tgg =new ToggleGroup();

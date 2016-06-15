@@ -6,9 +6,13 @@
 package gui;
 
 import javafx.geometry.Insets;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import projectjava.Adherent;
 import projectjava.Bibliotheque;
+import projectjava.Livre;
 
 /**
  *
@@ -31,19 +35,28 @@ public class PartieCentrale extends StackPane {
             String attribut1[]={"titre","auteur","exemplaire dispo","exemplaire total"};
             String nomColonne2[]={"Nom","Prenom","@Mail","Profession"};
             String attribut2[]={"nom","prenom","email","profession"};*/
+            //
             listeE=new ListeElement[NB_BUTTON];
             bq.getListAdherent().get(0).emprunter(bq.getListLivre().get(0));
-            
-            this.listeE[0]=new ListeElement("Adherent",nomColonne,attribut);
+            this.listeE[0]=new ListeElement<Adherent>("Adherent",nomColonne,attribut,new Adherent());
             this.listeE[0].setData(bq.getListAdherent());
-            nomColonne[0]="Titre";nomColonne[1]="Auteur";
-            this.listeE[1]=new ListeElement("Livre",nomColonne,attribut);
-            this.listeE[1].setData(bq.getListLivre());
-            nomColonne[0]="Nom";nomColonne[1]="Prenom";nomColonne[2]="@Mail";nomColonne[3]="Profession";
-            this.listeE[2]=new ListeElement("Emprunt en cours",nomColonne,attribut);
-            this.listeE[2].setData(bq.livreEmprunter());
-            this.listeE[3]=new ListeElement("Retard",nomColonne,attribut);
-            this.listeE[3].setData(bq.adherentRetardataire());
+            //
+            this.listeE[1]=new ListeElement("Retard",nomColonne,attribut,new Adherent());
+            this.listeE[1].setData(bq.adherentRetardataire());
+            for(int i=0;i<listeE.length;i++)
+            //
+            nomColonne=new String[7];
+            nomColonne[0]="Titre";nomColonne[1]="Auteur";nomColonne[2]="Code";nomColonne[3]="Code1";
+            nomColonne[4]="Code2";nomColonne[5]="NB_Exemplaire";nomColonne[6]="NB_Disponible";
+            attribut=new String[7];
+            attribut[0]="titre";attribut[1]="auteur";attribut[3]="code1";attribut[4]="code2";
+            attribut[5]="nb_exemplaire_total";attribut[6]="nb_exemplaire_dispo";
+            this.listeE[2]=new ListeElement<Livre>("Livre",nomColonne,attribut,new Livre());
+            this.listeE[2].setData(bq.getListLivre());
+            System.out.println(bq.getListLivre().get(0).getAuteur());
+            //
+            this.listeE[3]=new ListeElement("Emprunt en cours",nomColonne,attribut,new Livre());
+            this.listeE[3].setData(bq.livreEmprunter());
             for(int i=0;i<listeE.length;i++)
             {
                this.listeE[i].setVisible(false);

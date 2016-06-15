@@ -14,6 +14,19 @@ public class Adherent implements Serializable {
     private int nb_emprunt;
     private Adresse adresse;
     
+      public Adherent()            
+    {
+        this.setId(null);
+        this.setNom(null);
+        this.setPrenom(null);
+        this.setEmail(null);
+        this.setProfession(null);
+        this.emprunt_livre =null;
+        this.emprunt_date = null;
+        this.nb_emprunt=0;
+        this.setAdresse(null);
+    }
+      
     public Adherent(int id, String nom, String prenom, String email, String profession, Adresse adresse)
     {
         this.setId(String.valueOf(id));
@@ -114,6 +127,24 @@ public class Adherent implements Serializable {
         this.emprunt_livre[this.getNb_emprunt()]=livre;
         this.emprunt_date[this.getNb_emprunt()]=Calendar.getInstance();
         this.getEmprunt_date()[this.getNb_emprunt()].add(Calendar.DAY_OF_MONTH, 15);
+        this.nb_emprunt++;
+        livre.decNb_exemplaire_dispo();
+        return true;
+    }
+    public boolean emprunterRetard(Livre livre)
+    {
+        if (this.getNb_emprunt()>=3)
+        {
+            return false;
+        }
+        if (livre.getNb_exemplaire_dispo()==0)
+        {
+            return false;
+        }
+        
+        this.emprunt_livre[this.getNb_emprunt()]=livre;
+        this.emprunt_date[this.getNb_emprunt()]=Calendar.getInstance();
+        this.getEmprunt_date()[this.getNb_emprunt()].add(Calendar.DAY_OF_MONTH, -2);
         this.nb_emprunt++;
         livre.decNb_exemplaire_dispo();
         return true;
