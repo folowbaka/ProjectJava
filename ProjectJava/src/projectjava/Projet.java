@@ -8,12 +8,12 @@ public class Projet {
     public static void main(String[] args) {
         Bibliotheque bibli_test=new Bibliotheque();
         String hauteur="Nikudan";
-        Livre livre_test=new Livre("Walid Adventure1",hauteur,"HEN",1,bibli_test);
+        Livre livre_test=new Livre("Walid Adventure1","Cerin","HEN",1,bibli_test);
         Adherent adh_test=new Adherent(bibli_test.getID(),"Nikudan","Roule","azeaze@gmail.com","Grateurq",new Adresse("29","rue des grateurq","99999","Partout"));
         
         bibli_test.addLivre(livre_test);
-        bibli_test.addLivre(new Livre("Walid Adventure2",hauteur,"HEN",1,bibli_test));
-        bibli_test.addLivre(new Livre("Walid Adventure3",hauteur,"HEN",1,bibli_test));
+        bibli_test.addLivre(new Livre("Walid Adventure2","Boruto","HEN",1,bibli_test));
+        bibli_test.addLivre(new Livre("Walid Adventure3","Doritos","HEN",1,bibli_test));
         bibli_test.addAdherent(adh_test);
         bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Abdellah","Ghiles","azeaze@gmail.com","Bananier",new Adresse("29","rue des grateur","99999","Partout")));
         bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Galente","David","fsdf@gmail.com","Plombier",new Adresse("29","rue des grateur","99999","Partout")));

@@ -39,11 +39,9 @@ public class PartieCentrale extends StackPane {
             nomColonne[0]="Titre";nomColonne[1]="Auteur";
             this.listeE[1]=new ListeElement("Livre",nomColonne,attribut);
             this.listeE[1].setData(bq.getListLivre());
-            //this.listeE[1].setData(bq.getListLivre());
             nomColonne[0]="Nom";nomColonne[1]="Prenom";nomColonne[2]="@Mail";nomColonne[3]="Profession";
             this.listeE[2]=new ListeElement("Emprunt en cours",nomColonne,attribut);
             this.listeE[2].setData(bq.livreEmprunter());
-            //this.listeE[2].setData(bq.adherentRetardataire());
             this.listeE[3]=new ListeElement("Retard",nomColonne,attribut);
             this.listeE[3].setData(bq.adherentRetardataire());
             for(int i=0;i<listeE.length;i++)

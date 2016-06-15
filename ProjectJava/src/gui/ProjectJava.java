@@ -86,9 +86,10 @@ public class ProjectJava extends Application {
         this.bq=Bibliotheque.loadBibliotheque("src/ressource/BDD.txt");
         this.ms=new MenuSecondaire();
         this.pc=new PartieCentrale(new MenuPrincipal(ms),this.bq);
-        this.ms.getMl().getTg()[0].setOnMousePressed(new HandlerButtonLecture(0,this.pc));
-        this.ms.getMl().getTg()[1].setOnMousePressed(new HandlerButtonLecture(1,this.pc));
-        this.ms.getMl().getTg()[2].setOnMousePressed(new HandlerButtonLecture(2,this.pc));
+        for(int i=0;i<this.ms.getMl().getTg().length;i++)
+        {
+        this.ms.getMl().getTg()[i].setOnMousePressed(new HandlerButtonLecture(i,this.pc));
+        }
         NavBar nv=new NavBar();
         root.setCenter(pc);
         root.setLeft(ms);
