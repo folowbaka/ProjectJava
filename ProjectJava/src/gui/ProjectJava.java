@@ -101,10 +101,9 @@ public class ProjectJava extends Application {
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
     @Override
     public void handle(WindowEvent event) {
-        System.out.println("Walid Sauvegarde");
+        System.out.println("Sauvegarde");
         bq.saveBibliotheque("src/ressource/BDD.txt");
-    }
-});
+    }});
         
     }
 

@@ -17,6 +17,8 @@ import projectjava.Bibliotheque;
 public class PartieCentrale extends StackPane {
         private MenuPrincipal mn;
         private ListeElement[] listeE;
+        final int NB_BUTTON=4;
+
         public PartieCentrale(MenuPrincipal mn,Bibliotheque bq)
         {
             super();
@@ -25,15 +27,25 @@ public class PartieCentrale extends StackPane {
             this.getChildren().add(this.mn);
             String nomColonne[]={"Nom","Prenom","@Mail","Profession"};
             String attribut[]={"nom","prenom","email","profession"};
-            listeE=new ListeElement[3];
+            /*String nomColonne1[]={"Titre","Auteur","Exemplaire dispo","Exemplaire total"};
+            String attribut1[]={"titre","auteur","exemplaire dispo","exemplaire total"};
+            String nomColonne2[]={"Nom","Prenom","@Mail","Profession"};
+            String attribut2[]={"nom","prenom","email","profession"};*/
+            listeE=new ListeElement[NB_BUTTON];
             bq.getListAdherent().get(0).emprunter(bq.getListLivre().get(0));
-            this.listeE[0]=new ListeElement("ADHERENT",nomColonne,attribut);
+            
+            this.listeE[0]=new ListeElement("Adherent",nomColonne,attribut);
             this.listeE[0].setData(bq.getListAdherent());
-             nomColonne[0]="Titre";nomColonne[1]="Auteur";
+            nomColonne[0]="Titre";nomColonne[1]="Auteur";
             this.listeE[1]=new ListeElement("Livre",nomColonne,attribut);
+            this.listeE[1].setData(bq.getListLivre());
+            //this.listeE[1].setData(bq.getListLivre());
             nomColonne[0]="Nom";nomColonne[1]="Prenom";nomColonne[2]="@Mail";nomColonne[3]="Profession";
-            this.listeE[2]=new ListeElement("Retardataire",nomColonne,attribut);
-            this.listeE[2].setData(bq.adherentRetardataire());
+            this.listeE[2]=new ListeElement("Emprunt en cours",nomColonne,attribut);
+            this.listeE[2].setData(bq.livreEmprunter());
+            //this.listeE[2].setData(bq.adherentRetardataire());
+            this.listeE[3]=new ListeElement("Retard",nomColonne,attribut);
+            this.listeE[3].setData(bq.adherentRetardataire());
             for(int i=0;i<listeE.length;i++)
             {
                this.listeE[i].setVisible(false);

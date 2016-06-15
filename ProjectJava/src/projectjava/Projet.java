@@ -7,7 +7,7 @@ public class Projet {
 
     public static void main(String[] args) {
         Bibliotheque bibli_test=new Bibliotheque();
-        String[] hauteur={"Nikudan","param2","param3"};
+        String hauteur="Nikudan";
         Livre livre_test=new Livre("Walid Adventure1",hauteur,"HEN",1,bibli_test);
         Adherent adh_test=new Adherent(bibli_test.getID(),"Nikudan","Roule","azeaze@gmail.com","Grateurq",new Adresse("29","rue des grateurq","99999","Partout"));
         
@@ -30,12 +30,6 @@ public class Projet {
         adh_test.emprunter(livre_test);
         System.out.println(adh_test.toString());
         System.out.println(bibli_test.Livre_toString());
-        
-        
-        for (Adherent elem: bibli_test.get_adherent_croissant_id())
-        {
-            System.out.println(elem.toString());
-        }
         
         System.out.println(bibli_test.saveBibliotheque("src\\ressource\\BDD.txt"));
         

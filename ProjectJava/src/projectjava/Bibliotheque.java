@@ -62,71 +62,30 @@ public class Bibliotheque implements Serializable {
     {
         return this.adherent;
     }
-     public ArrayList<Livre> getListLivre()
+    
+    public ArrayList<Livre> getListLivre()
     {
         return this.livre;
     }
-
     
+    public ArrayList<Livre> livreEmprunter()
+    {
+        ArrayList<Livre> resultat=new ArrayList<Livre>();
+        
+        for(Livre livre_:this.livre)
+        {
+            if(livre_.getNb_exemplaire_total()!=livre_.getNb_exemplaire_dispo())
+            {
+                resultat.add(livre_);
+            }
+        }
+        
+        return resultat;
+    }
+        
     public int getID()
     {
         return this.current_id;
-    }
-    
-    public ArrayList<Adherent> get_adherent_alpha_nom()
-    {
-        Collections.sort(this.adherent, (Adherent adh1, Adherent adh2) -> adh1.getNom().compareTo(adh2.getNom()));
-        
-        return this.adherent;
-    }
-    
-    public ArrayList<Adherent> get_adherent_alpha_prenom()
-    {
-        Collections.sort(this.adherent, (Adherent adh1, Adherent adh2) -> adh1.getPrenom().compareTo(adh2.getPrenom()));
-        
-        return this.adherent;
-    }
-    
-    public ArrayList<Adherent> get_adherent_croissant_id()
-    {
-        Collections.sort(this.adherent, (Adherent adh1, Adherent adh2) -> adh1.getId().compareTo(adh2.getId()));
-        
-        return this.adherent;
-    }
-    
-    public ArrayList<Adherent> get_adherent_alpha_profession()
-    {
-        Collections.sort(this.adherent, (Adherent adh1, Adherent adh2) -> adh1.getProfession().compareTo(adh2.getProfession()));
-        
-        return this.adherent;
-    }
-    
-    public ArrayList<Adherent> get_adherent_nalpha_nom()
-    {
-        Collections.sort(this.adherent, (Adherent adh1, Adherent adh2) -> adh2.getNom().compareTo(adh1.getNom()));
-        
-        return this.adherent;
-    }
-    
-    public ArrayList<Adherent> get_adherent_nalpha_prenom()
-    {
-        Collections.sort(this.adherent, (Adherent adh1, Adherent adh2) -> adh2.getPrenom().compareTo(adh1.getPrenom()));
-        
-        return this.adherent;
-    }
-    
-    public ArrayList<Adherent> get_adherent_ncroissant_id()
-    {
-        Collections.sort(this.adherent, (Adherent adh1, Adherent adh2) -> adh2.getId().compareTo(adh1.getId()));
-        
-        return this.adherent;
-    }
-    
-    public ArrayList<Adherent> get_adherent_nalpha_profession()
-    {
-        Collections.sort(this.adherent, (Adherent adh1, Adherent adh2) -> adh1.getProfession().compareTo(adh2.getProfession()));
-        
-        return this.adherent;
     }
     
     public static Bibliotheque loadBibliotheque(String file)

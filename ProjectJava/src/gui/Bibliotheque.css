@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 .root
 {
-    -fx-background-image:url("/ressource/swag.gif");
+    -fx-background-color:"424242";
 }
 #menu-principal
 {
@@ -24,10 +24,10 @@ and open the template in the editor.
 
 #menu-principal .label
 {
-    -fx-font-size:40px;
-    -fx-text-fill:black;
+    -fx-font-size:50px;
+    -fx-text-fill:white;
     -fx-font-weight:bold;
-    -fx-alignment:center;
+    -fx-alignment:CENTER;
     -fx-max-width:400px;
 }
 #menu-secondaire
@@ -105,6 +105,6 @@ and open the template in the editor.
     -fx-alignment:CENTER;
     -fx-max-width:200px;
     -fx-font-weight:bold;
-    -fx-text-fill:black;
+    -fx-text-fill:white;
 }
 

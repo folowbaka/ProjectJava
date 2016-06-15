@@ -21,22 +21,24 @@ public class MenuLecture extends VBox{
         
         ToggleButton[] tg;
         PartieCentrale pc;
-        final int NB_BUTTON=4;
+        final int NB_BUTTON=5;
     public MenuLecture()
     {
         super();
         this.pc=pc;
         this.setId("menu-lecture");
-        tg=new ToggleButton[4];
-        tg[0]=new ToggleButton("Liste adherent");
-        tg[1]=new ToggleButton("Liste livre");
-        tg[2]=new ToggleButton("Liste lecteur walid");
-        tg[3]=new ToggleButton("Rechercher");
+        tg=new ToggleButton[NB_BUTTON];
+        tg[0]=new ToggleButton("Adherent");
+        tg[1]=new ToggleButton("Livre");
+        tg[2]=new ToggleButton("Emprunt");
+        tg[3]=new ToggleButton("Retard");
+        tg[4]=new ToggleButton("Recherche");
+
         ToggleGroup tgg =new ToggleGroup();
         for(int i=0;i<NB_BUTTON;i++)
         {
             tg[i].setToggleGroup(tgg);
-           this.getChildren().add(tg[i]);
+            this.getChildren().add(tg[i]);
         }
         this.setVisible(false);
     }
