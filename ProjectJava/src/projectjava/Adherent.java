@@ -150,6 +150,7 @@ public class Adherent implements Serializable {
             this.emprunt_livre[id]=this.emprunt_livre[id+1];
             id++;
         }
+        this.nb_emprunt--;
     }
     
     public Calendar emprunteLivre(Livre livre)

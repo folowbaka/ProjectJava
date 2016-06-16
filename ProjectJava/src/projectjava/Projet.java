@@ -57,14 +57,6 @@ public class Projet {
 //        
 //        bibli_test.addLivre(new Livre("","","",bibli_test));
 //        bibli_test.addLivre(new Livre("","","",bibli_test));
-        
-        
-
-
-
-        
-        
-
 //        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Galante","David","Plombier",new Adresse("29","rue des grateur","99999","Partout")));
 //        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Dieu","Arnaud","Coiffeur",new Adresse("29","rue des grateur","99999","Partout")));
 //        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Boyer","Guyaume","Sodomite",new Adresse("29","rue des grateur","99999","Partout")));
