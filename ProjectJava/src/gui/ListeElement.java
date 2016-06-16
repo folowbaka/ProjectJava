@@ -8,11 +8,18 @@ package gui;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import projectjava.Adherent;
 import projectjava.Livre;
@@ -21,20 +28,22 @@ import projectjava.Livre;
  *
  * @author david
  */
-public class ListeElement<T> extends VBox {
+public class ListeElement<T> extends GridPane {
     private TableView<T> table;
     private ObservableList<T> data;
     private T valeur;
+    private TextField search;
+    private ChoiceBox chB;
+    private int debRecherche;
     public ListeElement(String nomTable,String[] nomColonne,String[] attribut,T test)
     {
         super();
         this.valeur=test;
         this.table=new TableView();
         table.setEditable(true);
-        Label titreTable=new Label(nomTable);
         this.setId("listeElement");
-        titreTable.setId("TitreTable");
         this.table.setEditable(true);
+        this.TitreListe(nomTable);
         if(valeur instanceof Livre)
         {
             int i=0;
@@ -72,7 +81,8 @@ public class ListeElement<T> extends VBox {
             }
         }
         
-        this.getChildren().addAll(titreTable, table);
+        
+        this.add(this.table, 0, 2);
         
     }
     public void setData(ArrayList<T> ar)
@@ -83,5 +93,39 @@ public class ListeElement<T> extends VBox {
     public TableView getTable()
     {
         return this.table;
+    }
+    public TextField getSearch()
+    {
+        return this.search;
+    }
+    public void addSearch(String[] choix)
+    {
+        HBox recherche=new HBox();
+        this.debRecherche=0;
+        this.search=new TextField("Rechercher");
+        this.getStyleClass().add("search");
+        this.chB=new ChoiceBox(FXCollections.observableArrayList(choix));
+        this.chB.getSelectionModel().selectFirst();
+        recherche.getChildren().addAll(this.search,this.chB);
+        this.add(recherche, 0, 1);
+        
+        this.search.setOnMousePressed(new EventHandler<MouseEvent>(){
+        public void handle(MouseEvent me) {
+        if(debRecherche==0)
+        {
+            search.clear();
+            debRecherche++;
+        }
+    }
+        });
+        
+    }
+    public void TitreListe(String s)
+    {
+        StackPane titreTable=new StackPane();
+        Label titre=new Label(s);
+         titreTable.setId("TitreTable");
+         titreTable.getChildren().add(titre);
+         this.add(titreTable, 0, 0);
     }
 }

@@ -89,10 +89,14 @@ and open the template in the editor.
 {
     -fx-max-height:900px;
     -fx-alignment:CENTER;
+    -fx-min-width:850px;
 }
 #listeElement .table-view
 {
-    -fx-min-height:750px;
+    -fx-min-height:720px;
+    -fx-min-width:850px;
+    -fx-max-height:750px;
+    -fx-max-width:850px;
 }
 #listeElement .label
 {
@@ -107,7 +111,7 @@ and open the template in the editor.
 {
     -fx-font-size:20px;
     -fx-alignment:CENTER;
-    -fx-max-width:200px;
+    -fx-max-width:850px;
     -fx-font-weight:bold;
     -fx-text-fill:white;
 }
@@ -152,4 +156,20 @@ and open the template in the editor.
 {
     -fx-font-size:20px;
     
+}
+.search .text-field
+{
+    -fx-font-size:20px;
+}
+.choice-box
+{
+    -fx-font-size:2px;
+    -fx-min-width:120px;
+    -fx-max-width:120px;
+}
+.choice-box .label
+{
+    -fx-font-size:2px;
+    -fx-min-width:120px;
+    -fx-max-width:120px;
 }
