@@ -8,6 +8,7 @@ package gui;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import projectjava.Adherent;
+import projectjava.Livre;
 
 /**
  *
@@ -34,6 +35,13 @@ public class ListeElementEditable<T> extends ListeElement {
                    ((FicheAdherent)pa.getPCentrale().getEc()[4]).remplissage();
                    
                     ((FicheAdherent)pa.getPCentrale().getEc()[4]).setVisible(true);
+                }
+                else if(test instanceof Livre)
+                {
+                    //((FicheLivre)pa.getPCentrale().getEc()[4]).setLi((Livre)getTable().getSelectionModel().getSelectedItem());
+                   //((FicheLivre)pa.getPCentrale().getEc()[4]).remplissage();
+                   
+                    ((FicheLivre)pa.getPCentrale().getEc()[5]).setVisible(true);
                 }
             
             }

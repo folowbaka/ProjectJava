@@ -40,8 +40,8 @@ public class Bibliotheque implements Serializable {
         if(this.adherent.contains(adh))
         {
             adh.rendre(0);
-            adh.rendre(1);
-            adh.rendre(2);
+            adh.rendre(0);
+            adh.rendre(0);
             this.adherent.remove(adh);
         }
     }

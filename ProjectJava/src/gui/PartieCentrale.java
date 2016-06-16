@@ -25,7 +25,7 @@ public class PartieCentrale extends StackPane {
         private ListeElement[] listeE;
         private Pane[] ecriture;
         final int NB_BUTTON=4;
-        final int NB_BUTTONECRITURE=5;
+        final int NB_BUTTONECRITURE=6;
 
         public PartieCentrale(MenuPrincipal mn,Bibliotheque bq,ProjectJava pa)
         {
@@ -68,6 +68,8 @@ public class PartieCentrale extends StackPane {
             this.listeE[3]=new ListeElement("Emprunt en cours",nomColonne,attribut,new Livre());
             this.listeE[3].setData(bq.livreEmprunter());
             this.ecriture[4]=new FicheAdherent(pa);
+            this.ecriture[5]=new FicheLivre(pa);
+            
             for(int i=2;i<NB_BUTTONECRITURE;i++)
             {
                this.ecriture[i].setVisible(false);
