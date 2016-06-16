@@ -1,19 +1,14 @@
 
 package projectjava;
 
-import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStreamWriter;
 import java.io.Serializable;
-import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,6 +33,57 @@ public class Bibliotheque implements Serializable {
     {
         this.adherent.add(adherent);
         current_id++;
+    }
+    
+    public void removeAdherent(Adherent adh)
+    {
+        if(this.adherent.contains(adh))
+        {
+            adh.rendre(0);
+            adh.rendre(1);
+            adh.rendre(2);
+            this.adherent.remove(adh);
+        }
+    }
+    
+    public void removeAdherent_id(String id)
+    {
+        for(Adherent adh:this.adherent)
+        {
+            if(adh.getId().equals(id))
+            {
+                this.removeAdherent(adh);
+            }
+        }
+    }
+    
+    public void removeLivre(Livre livre_)
+    {
+        if(this.livre.contains(livre_))
+        {
+            for(Adherent adh:this.adherent)
+            {
+                if(adh.emprunteLivre(livre_)!=null)
+                {
+                    adh.rendre(adh.emprunteLivre_id(livre_));
+                    return;
+                }
+            }
+            
+            this.livre.remove(livre_);
+        }
+    }
+    
+    public void removeLivre_id(String code1,String code2)
+    {
+        for(Livre livre_:this.livre)
+        {
+            if(livre_.getCode().equals(code1+code2))
+            {
+                this.removeLivre(livre_);
+                return;
+            }
+        }
     }
     
     public int getNbLivre_Type(String type)
@@ -94,6 +140,14 @@ public class Bibliotheque implements Serializable {
     public int getID()
     {
         return this.current_id;
+    }
+    
+    public void rendreLivre(Livre livre_)
+    {
+        if(this.livre.contains(livre_))
+        {
+            this.livre.get(this.livre.indexOf(livre)).incNb_exemplaire_dispo();
+        }
     }
     
     public static Bibliotheque loadBibliotheque(String file)

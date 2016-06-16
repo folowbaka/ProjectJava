@@ -8,13 +8,12 @@ package gui;
 import handler.HandlerRechercheAdherent;
 import handler.HandlerRechercheAdherentEcriture;
 import handler.HandlerRechercheLivre;
+<<<<<<< HEAD
 import handler.HandlerRechercheLivreEcriture;
 import javafx.application.Application;
+=======
+>>>>>>> 7766cc68f9178af5704eef340e9418b643755f69
 import javafx.geometry.Insets;
-import javafx.scene.Parent;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import projectjava.Adherent;
