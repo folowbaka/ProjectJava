@@ -146,7 +146,7 @@ public class Bibliotheque implements Serializable {
     {
         if(this.livre.contains(livre_))
         {
-            this.livre.get(this.livre.indexOf(livre)).incNb_exemplaire_dispo();
+            this.livre.get(this.livre.indexOf(livre_)).incNb_exemplaire_dispo();
         }
     }
     
