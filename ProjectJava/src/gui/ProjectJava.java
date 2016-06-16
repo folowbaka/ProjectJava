@@ -51,7 +51,7 @@ public class ProjectJava extends Application {
             private MenuPrincipal mnn;
             public NavBar(){
                 super();
-                this.setId("navbar");
+            this.setId("navbar");
                 
                 home=new ImageButton();
                 home.setId("homebutton");
