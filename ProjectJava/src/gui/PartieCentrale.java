@@ -7,12 +7,7 @@ package gui;
 
 import handler.HandlerRechercheAdherent;
 import handler.HandlerRechercheLivre;
-import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.scene.Parent;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import projectjava.Adherent;

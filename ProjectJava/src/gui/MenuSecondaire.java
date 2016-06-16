@@ -7,9 +7,7 @@ package gui;
 
 import gui.MenuLecture;
 import gui.MenuEcriture;
-import javafx.scene.Parent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 
 /**
  *

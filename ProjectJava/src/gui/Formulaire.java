@@ -5,7 +5,6 @@
  */
 package gui;
 
-import handler.HandlerButtonValiderA;
 import java.util.ArrayList;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
