@@ -72,8 +72,9 @@ public class PartieCentrale extends StackPane {
             this.ecriture[0]=new FormulaireAdherent(pa);
             this.ecriture[1]=new FormulaireLivre(pa);
             this.getChildren().addAll(this.ecriture[0],this.ecriture[1]);
-            this.listeE[0].addSearch();
-            this.listeE[0].getSearch().setOnKeyPressed(new HandlerRechercheAdherent(pa));
+            String[] choix={"Nom"};
+            this.listeE[0].addSearch(choix);
+            this.listeE[0].getSearch().setOnKeyReleased(new HandlerRechercheAdherent(pa));
             this.setPadding(new Insets(0, 50, 0, 50));
             
         }

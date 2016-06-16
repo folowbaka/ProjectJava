@@ -110,6 +110,7 @@ public class ListeElement<T> extends GridPane {
         this.add(recherche, 0, 1);
         
         this.search.setOnMousePressed(new EventHandler<MouseEvent>(){
+        @Override
         public void handle(MouseEvent me) {
         if(debRecherche==0)
         {
