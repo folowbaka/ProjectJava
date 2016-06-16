@@ -132,6 +132,21 @@ public class Adherent implements Serializable {
         return true;
     }
     
+    public void rendre(int id)
+    {
+        if(id<this.nb_emprunt)
+        {
+            this.emprunt_date[id]=null;
+            this.emprunt_livre[id].getBibli().rendreLivre(this.emprunt_livre[id]);
+        }
+        while(id<2)
+        {
+            this.emprunt_date[id]=this.emprunt_date[id+1];
+            this.emprunt_livre[id]=this.emprunt_livre[id+1];
+            id++;
+        }
+    }
+    
     public Calendar emprunteLivre(Livre livre)
     {
         if(this.emprunt_livre[0]!=null&&this.emprunt_livre[0].equals(livre))
@@ -148,6 +163,24 @@ public class Adherent implements Serializable {
         }
         
         return null;
+    }
+    
+    public int emprunteLivre_id(Livre livre)
+    {
+        if(this.emprunt_livre[0]!=null&&this.emprunt_livre[0].equals(livre))
+        {
+            return 0;
+        }
+        if(this.emprunt_livre[1]!=null&&this.emprunt_livre[1].equals(livre))
+        {
+            return 1;
+        }
+        if(this.emprunt_livre[2]!=null&&this.emprunt_livre[2].equals(livre))
+        {
+            return 2;
+        }
+        
+        return -1;
     }
     
     public boolean emprunterRetard(Livre livre)

@@ -4,6 +4,7 @@ package projectjava;
 import java.io.Serializable;
 
 public class Livre implements Serializable {
+    private Bibliotheque bibli;
     private String titre;
     private String auteur;
     private String code1;
@@ -28,8 +29,14 @@ public class Livre implements Serializable {
         this.nb_exemplaire_total=nb_exemplaire;
         this.nb_exemplaire_dispo=this.getNb_exemplaire_total();
         this.code2=bibli.getNbLivre_Type(this.getCode1())+1;
+        this.bibli=bibli;
     }
 
+    public Bibliotheque getBibli()
+    {
+        return this.bibli;
+    }
+    
     public String getTitre()
     {
         return this.titre;
@@ -82,5 +89,13 @@ public class Livre implements Serializable {
     public String toString()
     {
         return "["+this.code1+"-"+String.format("%03d",this.code2)+"]"+this.titre+" : "+this.auteur+" "+String.valueOf(this.nb_exemplaire_dispo)+"/"+String.valueOf(this.nb_exemplaire_total);
+    }
+
+    void incNb_exemplaire_dispo() {
+        
+        if(this.nb_exemplaire_dispo<this.nb_exemplaire_total)
+        {
+            this.nb_exemplaire_dispo++;
+        }
     }
 }

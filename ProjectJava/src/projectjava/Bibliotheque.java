@@ -35,6 +35,33 @@ public class Bibliotheque implements Serializable {
         current_id++;
     }
     
+    public void removeAdherent(Adherent adh)
+    {
+        if(this.adherent.contains(adh))
+        {
+            adh.rendre(0);
+            adh.rendre(1);
+            adh.rendre(2);
+            this.adherent.remove(adh);
+        }
+    }
+    
+    public void removeLivre(Livre livre_)
+    {
+        if(this.livre.contains(livre_))
+        {
+            for(Adherent adh:this.adherent)
+            {
+                if(adh.emprunteLivre(livre_)!=null)
+                {
+                    adh.rendre(adh.emprunteLivre_id(livre_));
+                }
+            }
+            
+            this.livre.remove(livre_);
+        }
+    }
+    
     public int getNbLivre_Type(String type)
     {
         int compteur=0;
@@ -89,6 +116,14 @@ public class Bibliotheque implements Serializable {
     public int getID()
     {
         return this.current_id;
+    }
+    
+    public void rendreLivre(Livre livre_)
+    {
+        if(this.livre.contains(livre_))
+        {
+            this.livre.get(this.livre.indexOf(livre)).incNb_exemplaire_dispo();
+        }
     }
     
     public static Bibliotheque loadBibliotheque(String file)
