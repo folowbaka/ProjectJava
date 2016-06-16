@@ -28,6 +28,7 @@ public class PartieCentrale extends StackPane {
         private ListeElement[] listeE;
         private Pane[] ecriture;
         final int NB_BUTTON=4;
+        final int NB_BUTTONECRITURE=4;
 
         public PartieCentrale(MenuPrincipal mn,Bibliotheque bq,ProjectJava pa)
         {
@@ -35,6 +36,7 @@ public class PartieCentrale extends StackPane {
             this.setId("PaneCentral");
             this.mn=mn;
             StackPane.setMargin(this.mn,new Insets(0,0,0,-200));
+            this.ecriture=new Pane[4];
             this.getChildren().add(this.mn);
             String nomColonne[]={"Nom","Prenom","@Mail","Profession"};
             String attribut[]={"nom","prenom","email","profession"};
@@ -46,7 +48,9 @@ public class PartieCentrale extends StackPane {
             listeE=new ListeElement[NB_BUTTON];
             bq.getListAdherent().get(0).emprunter(bq.getListLivre().get(0));
             this.listeE[0]=new ListeElement<Adherent>("Adherent",nomColonne,attribut,new Adherent());
+            this.ecriture[2]=new ListeElementEditable("Adherent",nomColonne,attribut,new Adherent());
             this.listeE[0].setData(bq.getListAdherent());
+            ((ListeElementEditable)this.ecriture[2]).setData(bq.getListAdherent());
             //
             this.listeE[1]=new ListeElement("Retard",nomColonne,attribut,new Adherent());
             this.listeE[1].setData(bq.adherentRetardataire());
@@ -59,17 +63,23 @@ public class PartieCentrale extends StackPane {
             attribut[0]="titre";attribut[1]="auteur";attribut[3]="code1";attribut[4]="code2";
             attribut[5]="nb_exemplaire_total";attribut[6]="nb_exemplaire_dispo";
             this.listeE[2]=new ListeElement<Livre>("Livre",nomColonne,attribut,new Livre());
+            this.ecriture[3]=new ListeElementEditable("Livre",nomColonne,attribut,new Livre());
             this.listeE[2].setData(bq.getListLivre());
+            ((ListeElementEditable)this.ecriture[3]).setData(bq.getListLivre());
             System.out.println(bq.getListLivre().get(0).getAuteur());
             //
             this.listeE[3]=new ListeElement("Emprunt en cours",nomColonne,attribut,new Livre());
             this.listeE[3].setData(bq.livreEmprunter());
+            for(int i=2;i<NB_BUTTONECRITURE;i++)
+            {
+               this.ecriture[i].setVisible(false);
+               this.getChildren().add(ecriture[i]);
+            }
             for(int i=0;i<listeE.length;i++)
             {
                this.listeE[i].setVisible(false);
                this.getChildren().add(listeE[i]);
             }
-            this.ecriture=new Pane[2];
             this.ecriture[0]=new FormulaireAdherent(pa);
             this.ecriture[1]=new FormulaireLivre(pa);
             this.getChildren().addAll(this.ecriture[0],this.ecriture[1]);
