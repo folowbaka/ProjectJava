@@ -31,20 +31,20 @@ import projectjava.Livre;
 public class ListeElement<T> extends GridPane {
     private TableView<T> table;
     private ObservableList<T> data;
-    private T valeur;
+    private T test;
     private TextField search;
     private ChoiceBox chB;
     private int debRecherche;
     public ListeElement(String nomTable,String[] nomColonne,String[] attribut,T test)
     {
         super();
-        this.valeur=test;
+        this.test=test;
         this.table=new TableView();
         table.setEditable(true);
         this.setId("listeElement");
         this.table.setEditable(true);
         this.TitreListe(nomTable);
-        if(valeur instanceof Livre)
+        if(test instanceof Livre)
         {
             int i=0;
             while(i<nomColonne.length)
@@ -80,8 +80,6 @@ public class ListeElement<T> extends GridPane {
                 table.getColumns().add(tc);
             }
         }
-        
-        
         this.add(this.table, 0, 2);
         
     }
@@ -101,6 +99,10 @@ public class ListeElement<T> extends GridPane {
     public ChoiceBox getChoix()
     {
         return this.chB;
+    }
+    public T getTest()
+    {
+        return this.test;
     }
     public void addSearch(String[] choix)
     {

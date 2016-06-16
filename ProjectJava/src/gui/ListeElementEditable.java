@@ -5,14 +5,39 @@
  */
 package gui;
 
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
+import projectjava.Adherent;
+
 /**
  *
  * @author david
  */
-public class ListeElementEditable extends ListeElement {
+public class ListeElementEditable<T> extends ListeElement {
     
-    public ListeElementEditable(String nomTable, String[] nomColonne, String[] attribut, Object test) {
+    private ProjectJava pa;
+    
+    public ListeElementEditable(String nomTable, String[] nomColonne, String[] attribut, T test,ProjectJava pa) {
         super(nomTable, nomColonne, attribut, test);
+        this.pa=pa;
+        this.getStyleClass().add("TableEditable");
+        
+        
+        this.getTable().setOnMousePressed(new EventHandler<MouseEvent>() {
+        @Override 
+        public void handle(MouseEvent event) {
+            if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+                setVisible(false);
+                if(test instanceof Adherent)
+                {
+                   ((FicheAdherent)pa.getPCentrale().getEc()[4]).setAd((Adherent)getTable().getSelectionModel().getSelectedItem());
+                   ((FicheAdherent)pa.getPCentrale().getEc()[4]).remplissage();
+                    ((FicheAdherent)pa.getPCentrale().getEc()[4]).setVisible(true);
+                }
+            
+            }
+        }});
     }
+    
     
 }

@@ -5,27 +5,20 @@
  */
 package handler;
 
-import gui.MenuSecondaire;
-import gui.PartieCentrale;
+import gui.ListeElementEditable;
 import gui.ProjectJava;
 import java.util.ArrayList;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.Parent;
-import javafx.util.Duration;
 import projectjava.Adherent;
 
 /**
  *
  * @author david
  */
-public class HandlerRechercheAdherent implements EventHandler{
-    
-    ProjectJava pa;
-    public HandlerRechercheAdherent(ProjectJava pa)
+public class HandlerRechercheAdherentEcriture implements EventHandler {
+     ProjectJava pa;
+    public HandlerRechercheAdherentEcriture(ProjectJava pa)
     {
         super();
         this.pa=pa;
@@ -33,17 +26,17 @@ public class HandlerRechercheAdherent implements EventHandler{
     @Override
     public void handle(Event event) {
                
-              String recherche=pa.getPCentrale().getLe()[0].getSearch().getText();
+              String recherche=((ListeElementEditable)pa.getPCentrale().getEc()[2]).getSearch().getText();
               System.out.println(recherche);
               ArrayList<Adherent> a=null;
-              int i=pa.getPCentrale().getLe()[0].getChoix().getSelectionModel().getSelectedIndex();
+              int i=((ListeElementEditable)pa.getPCentrale().getEc()[2]).getChoix().getSelectionModel().getSelectedIndex();
               switch(i)
               {
                 case 0:
                 a=pa.getBibliotheque().search_adherent(recherche);
                 break;
               }
-              pa.getPCentrale().getLe()[0].setData(a);
+              ((ListeElementEditable)pa.getPCentrale().getEc()[2]).setData(a);
              
     }
 }
