@@ -21,7 +21,7 @@ public class MenuLecture extends VBox{
         
         ToggleButton[] tg;
         PartieCentrale pc;
-        final int NB_BUTTON=5;
+        final int NB_BUTTON=4;
     public MenuLecture()
     {
         super();
@@ -32,7 +32,6 @@ public class MenuLecture extends VBox{
         tg[1]=new ToggleButton("Retard");
         tg[2]=new ToggleButton("Livre");
         tg[3]=new ToggleButton("Emprunt");
-        tg[4]=new ToggleButton("Recherche");
 
         ToggleGroup tgg =new ToggleGroup();
         for(int i=0;i<NB_BUTTON;i++)
