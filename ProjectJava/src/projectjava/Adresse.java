@@ -14,7 +14,7 @@ public class Adresse implements Serializable {
         this.setNumero(numero);
         this.setRue(rue);
         this.setCp(cp);
-        this.setVille(ville);
+        this.setVille(Perso.toTitleCase(ville));
     }
 
     public String getNumero() 

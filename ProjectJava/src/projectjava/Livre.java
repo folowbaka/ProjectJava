@@ -22,9 +22,9 @@ public class Livre implements Serializable {
     }
     public Livre(String titre, String auteur, String code1, int nb_exemplaire, Bibliotheque bibli)
     {
-        this.titre=titre;
-        this.auteur=auteur;
-        this.code1=code1;
+        this.titre=Perso.toTitleCase(titre);
+        this.auteur=Perso.toTitleCase(auteur);
+        this.code1=code1.toUpperCase();
         this.nb_exemplaire_total=nb_exemplaire;
         this.nb_exemplaire_dispo=this.getNb_exemplaire_total();
         this.code2=bibli.getNbLivre_Type(this.getCode1())+1;

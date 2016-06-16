@@ -14,7 +14,7 @@ public class Adherent implements Serializable {
     private int nb_emprunt;
     private Adresse adresse;
     
-      public Adherent()            
+    public Adherent()            
     {
         this.setId(null);
         this.setNom(null);
@@ -30,10 +30,10 @@ public class Adherent implements Serializable {
     public Adherent(int id, String nom, String prenom, String email, String profession, Adresse adresse)
     {
         this.setId(String.valueOf(id));
-        this.setNom(nom);
-        this.setPrenom(prenom);
+        this.setNom(Perso.toTitleCase(nom));
+        this.setPrenom(Perso.toTitleCase(prenom));
         this.setEmail(email);
-        this.setProfession(profession);
+        this.setProfession(Perso.toTitleCase(profession));
         this.emprunt_livre = new Livre[3];
         this.emprunt_date = new Calendar[3];
         this.nb_emprunt=0;
