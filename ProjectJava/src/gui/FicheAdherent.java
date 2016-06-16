@@ -119,13 +119,15 @@ public class FicheAdherent extends Fiche{
         public void handle(MouseEvent event) {
                 
                getPa().getBibliotheque().removeAdherent(ad);
-               /*ArrayList<Adherent> adherent=getPa().getBibliotheque().getListAdherent();
+               ArrayList<Adherent> adherent=getPa().getBibliotheque().getListAdherent();
                ArrayList<Adherent> retard=getPa().getBibliotheque().adherentRetardataire();
                ArrayList<Livre> livre=getPa().getBibliotheque().getListLivre();
                getPa().getPCentrale().getLe()[0].setData(adherent);
-               getPa().getPCentrale().getLe()[1].setData(adherent);
-               getPa().getPCentrale().getLe()[1].setData(livre);*/
-               clearText();
+               getPa().getPCentrale().getLe()[1].setData(retard);
+               getPa().getPCentrale().getLe()[2].setData(livre);
+               ((ListeElementEditable)getPa().getPCentrale().getEc()[2]).setData(adherent);
+               ((ListeElementEditable)getPa().getPCentrale().getEc()[3]).setData(livre);
+               clearText("Fiche Adherent :");
             }
         });
      

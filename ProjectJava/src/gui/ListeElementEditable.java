@@ -38,8 +38,8 @@ public class ListeElementEditable<T> extends ListeElement {
                 }
                 else if(test instanceof Livre)
                 {
-                    //((FicheLivre)pa.getPCentrale().getEc()[4]).setLi((Livre)getTable().getSelectionModel().getSelectedItem());
-                   //((FicheLivre)pa.getPCentrale().getEc()[4]).remplissage();
+                    ((FicheLivre)pa.getPCentrale().getEc()[5]).setLi((Livre)getTable().getSelectionModel().getSelectedItem());
+                   ((FicheLivre)pa.getPCentrale().getEc()[5]).remplissage();
                    
                     ((FicheLivre)pa.getPCentrale().getEc()[5]).setVisible(true);
                 }

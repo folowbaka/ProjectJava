@@ -5,6 +5,8 @@
  */
 package handler;
 
+import gui.FicheAdherent;
+import gui.FicheLivre;
 import gui.PartieCentrale;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -34,7 +36,11 @@ public class HandlerButtonEcriture implements EventHandler {
                     pc.getEc()[j].setVisible(true);
                 }
                 else
-                   pc.getEc()[j].setVisible(false); 
+                   pc.getEc()[j].setVisible(false);
+           
+                    ((FicheAdherent)pc.getEc()[4]).clearText("Fiche Adherent :");
+                    ((FicheLivre)pc.getEc()[5]).clearText("Fiche Livre :");
+           
              }
     }
     

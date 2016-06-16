@@ -75,12 +75,13 @@ public class Fiche extends GridPane{
        }
        
     }
-    public void clearText()
+    public void clearText(String s)
     {
         for(int i=0;i<this.valeur.size();i++)
        {
            this.valeur.get(i).clear();
        }
+        this.titreFiche.setText(s);
     }
     public ArrayList<String> getValeurForm()
     {
