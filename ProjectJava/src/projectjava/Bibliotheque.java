@@ -46,6 +46,17 @@ public class Bibliotheque implements Serializable {
         }
     }
     
+    public void removeAdherent_id(String id)
+    {
+        for(Adherent adh:this.adherent)
+        {
+            if(adh.getId().equals(id))
+            {
+                this.removeAdherent(adh);
+            }
+        }
+    }
+    
     public void removeLivre(Livre livre_)
     {
         if(this.livre.contains(livre_))
@@ -55,10 +66,23 @@ public class Bibliotheque implements Serializable {
                 if(adh.emprunteLivre(livre_)!=null)
                 {
                     adh.rendre(adh.emprunteLivre_id(livre_));
+                    return;
                 }
             }
             
             this.livre.remove(livre_);
+        }
+    }
+    
+    public void removeLivre_id(String code1,String code2)
+    {
+        for(Livre livre_:this.livre)
+        {
+            if(livre_.getCode().equals(code1+code2))
+            {
+                this.removeLivre(livre_);
+                return;
+            }
         }
     }
     
