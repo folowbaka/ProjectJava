@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.io.Writer;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -70,13 +71,20 @@ public class Bibliotheque implements Serializable {
     
     public ArrayList<Livre> livreEmprunter()
     {
-        ArrayList<Livre> resultat=new ArrayList<Livre>();
-        
+        ArrayList resultat=new ArrayList();
+        SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
+
         for(Livre livre_:this.livre)
         {
             if(livre_.getNb_exemplaire_total()!=livre_.getNb_exemplaire_dispo())
             {
-                resultat.add(livre_);
+                for(Adherent adh:this.search_possesseur_livre(livre_))
+                {
+                    if(adh.emprunteLivre(livre_)!=null)
+                    {
+                        resultat.add(new String[]{livre_.getTitre(),adh.getNom(),adh.getPrenom(),format1.format(adh.emprunteLivre(livre_).getTime())});                      
+                    }
+                }
             }
         }
         
@@ -159,13 +167,31 @@ public class Bibliotheque implements Serializable {
         return resultat;
     }
     
+    public ArrayList<Adherent> search_possesseur_livre(String titre)
+    {
+        ArrayList<Adherent> resultat=new ArrayList<Adherent>();
+        Livre[] temp;
+        
+        for (Adherent adh:this.adherent)
+        {
+            temp=adh.getEmprunt_livre();
+            
+            if(temp[0]!=null&&temp[0].getTitre().contains(titre)||temp[1]!=null&&temp[1].getTitre().contains(titre)||temp[2]!=null&&temp[2].getTitre().contains(titre))
+            {
+                resultat.add(adh);
+            }
+        }
+        
+        return resultat;
+    }
+    
     public ArrayList<Livre> search_livre_titre(String titre)
     {
         ArrayList<Livre> resultat=new ArrayList<Livre>();
         
         for (Livre livre_:this.livre)
         {
-            if(livre_.getTitre().equals(titre))
+            if(livre_.getTitre().toLowerCase().contains(titre.toLowerCase()))
             {
                 resultat.add(livre_);
             }
@@ -180,7 +206,7 @@ public class Bibliotheque implements Serializable {
         
         for (Livre livre_:this.livre)
         {
-            if(livre_.getAuteurS().contains(auteur))
+            if(livre_.getAuteurS().toLowerCase().contains(auteur.toLowerCase()))
             {
                 resultat.add(livre_);
             }
@@ -195,7 +221,7 @@ public class Bibliotheque implements Serializable {
         
         for (Adherent adh:this.adherent)
         {
-            if(adh.getNom().contains(personne)||adh.getPrenom().contains(personne))
+            if(adh.getNom().toLowerCase().contains(personne.toLowerCase())||adh.getPrenom().toLowerCase().contains(personne.toLowerCase()))
             {
                 resultat.add(adh);
             }
@@ -203,7 +229,38 @@ public class Bibliotheque implements Serializable {
         
         return resultat;
     }
-   public ArrayList<Adherent> adherentRetardataire()
+    
+    public ArrayList<Adherent> search_adherent_profession(String profession)
+    {
+        ArrayList<Adherent> resultat=new ArrayList<Adherent>();
+        
+        for (Adherent adh:this.adherent)
+        {
+            if(adh.getProfession().toLowerCase().contains(profession.toLowerCase()))
+            {
+                resultat.add(adh);
+            }
+        }
+        
+        return resultat;
+    }
+    
+    public ArrayList<Adherent> search_adherent_mail(String mail)
+    {
+        ArrayList<Adherent> resultat=new ArrayList<Adherent>();
+        
+        for (Adherent adh:this.adherent)
+        {
+            if(adh.getEmail().toLowerCase().contains(mail.toLowerCase()))
+            {
+                resultat.add(adh);
+            }
+        }
+        
+        return resultat;
+    }
+    
+    public ArrayList<Adherent> adherentRetardataire()
     {
         ArrayList<Adherent> resultat=new ArrayList<Adherent>();
         for (Adherent adh:this.adherent)

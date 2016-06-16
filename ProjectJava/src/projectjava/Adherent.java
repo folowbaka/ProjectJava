@@ -131,6 +131,25 @@ public class Adherent implements Serializable {
         livre.decNb_exemplaire_dispo();
         return true;
     }
+    
+    public Calendar emprunteLivre(Livre livre)
+    {
+        if(this.emprunt_livre[0]!=null&&this.emprunt_livre[0].equals(livre))
+        {
+            return this.emprunt_date[0];
+        }
+        if(this.emprunt_livre[1]!=null&&this.emprunt_livre[1].equals(livre))
+        {
+            return this.emprunt_date[1];
+        }
+        if(this.emprunt_livre[2]!=null&&this.emprunt_livre[2].equals(livre))
+        {
+            return this.emprunt_date[2];
+        }
+        
+        return null;
+    }
+    
     public boolean emprunterRetard(Livre livre)
     {
         if (this.getNb_emprunt()>=3)
