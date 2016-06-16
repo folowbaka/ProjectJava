@@ -32,6 +32,7 @@ public class ListeElementEditable<T> extends ListeElement {
                 {
                    ((FicheAdherent)pa.getPCentrale().getEc()[4]).setAd((Adherent)getTable().getSelectionModel().getSelectedItem());
                    ((FicheAdherent)pa.getPCentrale().getEc()[4]).remplissage();
+                   
                     ((FicheAdherent)pa.getPCentrale().getEc()[4]).setVisible(true);
                 }
             

@@ -6,6 +6,7 @@
 package gui;
 
 import handler.HandlerButtonValiderA;
+import java.util.ArrayList;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -13,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import projectjava.Adherent;
+import projectjava.Livre;
 
 /**
  *
@@ -116,7 +118,14 @@ public class FicheAdherent extends Fiche{
     @Override 
         public void handle(MouseEvent event) {
                 
-               
+               getPa().getBibliotheque().removeAdherent(ad);
+               ArrayList<Adherent> adherent=getPa().getBibliotheque().getListAdherent();
+               ArrayList<Adherent> retard=getPa().getBibliotheque().adherentRetardataire();
+               ArrayList<Livre> livre=getPa().getBibliotheque().getListLivre();
+               getPa().getPCentrale().getLe()[0].setData(adherent);
+               getPa().getPCentrale().getLe()[1].setData(adherent);
+               getPa().getPCentrale().getLe()[1].setData(livre);
+               clearText();
             }
         });
      
