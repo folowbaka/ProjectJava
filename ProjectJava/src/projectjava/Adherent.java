@@ -40,6 +40,11 @@ public class Adherent implements Serializable {
         this.setAdresse(adresse);
     }
     
+    public Adherent(int id, String nom, String prenom, String profession)
+    {
+        this(id,nom,prenom,"bibli."+String.valueOf(id)+"@bibli.net",profession,new Adresse(String.valueOf(id),"rue du Random","93800","Epinay Sur Seine"));
+    }
+    
     public String getId()
     {
         return id;

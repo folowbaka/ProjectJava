@@ -2,6 +2,7 @@
 package projectjava;
 
 import java.io.Serializable;
+import java.util.Random;
 
 public class Livre implements Serializable {
     private Bibliotheque bibli;
@@ -30,6 +31,11 @@ public class Livre implements Serializable {
         this.nb_exemplaire_dispo=this.getNb_exemplaire_total();
         this.code2=bibli.getNbLivre_Type(this.getCode1())+1;
         this.bibli=bibli;
+    }
+    
+    public Livre(String titre, String auteur, String code, Bibliotheque bibli)
+    {
+        this(titre,auteur,code,(new Random()).nextInt(100),bibli);
     }
 
     public Bibliotheque getBibli()
