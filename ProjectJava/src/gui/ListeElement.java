@@ -98,6 +98,10 @@ public class ListeElement<T> extends GridPane {
     {
         return this.search;
     }
+    public ChoiceBox getChoix()
+    {
+        return this.chB;
+    }
     public void addSearch(String[] choix)
     {
         HBox recherche=new HBox();

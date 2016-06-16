@@ -35,7 +35,14 @@ public class HandlerRechercheAdherent implements EventHandler{
                
               String recherche=pa.getPCentrale().getLe()[0].getSearch().getText();
               System.out.println(recherche);
-              ArrayList<Adherent> a=pa.getBibliotheque().search_adherent(recherche);
+              ArrayList<Adherent> a=null;
+              int i=pa.getPCentrale().getLe()[0].getChoix().getSelectionModel().getSelectedIndex();
+              switch(i)
+              {
+                case 0:
+                a=pa.getBibliotheque().search_adherent(recherche);
+                break;
+              }
               pa.getPCentrale().getLe()[0].setData(a);
     }
 }

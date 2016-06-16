@@ -6,6 +6,7 @@
 package gui;
 
 import handler.HandlerRechercheAdherent;
+import handler.HandlerRechercheLivre;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
@@ -75,6 +76,10 @@ public class PartieCentrale extends StackPane {
             String[] choix={"Nom"};
             this.listeE[0].addSearch(choix);
             this.listeE[0].getSearch().setOnKeyReleased(new HandlerRechercheAdherent(pa));
+            choix=new String[2];
+            choix[0]="Titre";choix[1]="Auteur";
+            this.listeE[2].addSearch(choix);
+            this.listeE[2].getSearch().setOnKeyReleased(new HandlerRechercheLivre(pa));
             this.setPadding(new Insets(0, 50, 0, 50));
             
         }
