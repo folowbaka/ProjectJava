@@ -72,7 +72,6 @@ public class ListeElement<T> extends VBox {
             }
         }
         
-        this.setPadding(new Insets(0, 50, 0, 50));
         this.getChildren().addAll(titreTable, table);
         
     }

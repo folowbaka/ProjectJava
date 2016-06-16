@@ -9,7 +9,12 @@ and open the template in the editor.
 */
 .root
 {
-    -fx-background-color:"424242";
+    -fx-background:"d9d9d9";
+    -fx-background-image: url("/ressource/diagonale.png");
+}
+#PaneCentral
+{
+    
 }
 #menu-principal
 {
@@ -25,7 +30,7 @@ and open the template in the editor.
 #menu-principal .label
 {
     -fx-font-size:50px;
-    -fx-text-fill:white;
+    -fx-text-fill:black;
     -fx-font-weight:bold;
     -fx-alignment:CENTER;
     -fx-max-width:400px;
@@ -106,4 +111,45 @@ and open the template in the editor.
     -fx-font-weight:bold;
     -fx-text-fill:white;
 }
-
+.formAjout
+{
+    -fx-background-color:white;
+    -fx-max-height:750px;
+    -fx-alignment:CENTER;
+}
+.form
+{
+    -fx-alignment:CENTER;
+}
+ .form .label
+{   -fx-max-width:120px;
+    -fx-min-width:120px;
+    -fx-alignment:CENTER_LEFT;
+    -fx-font-size:20px;
+}
+ .form .text-field
+{   
+    -fx-alignment:CENTER;
+    -fx-font-size:20px;
+}
+ .STitreForm
+{
+    -fx-font-size:21px;
+    -fx-font-weight:bold;
+    
+}
+.TitreForm .label
+{
+    -fx-alignment:CENTER;
+    -fx-font-size:28px;
+    -fx-font-weight:bold;
+}
+.validerForm
+{
+    -fx-alignment:CENTER_RIGHT;
+}
+.validerForm .button
+{
+    -fx-font-size:20px;
+    
+}

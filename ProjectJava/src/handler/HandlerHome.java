@@ -6,6 +6,7 @@
 package handler;
 
 import gui.MenuSecondaire;
+import gui.PartieCentrale;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -21,31 +22,27 @@ import javafx.util.Duration;
 public class HandlerHome  implements EventHandler {
 
     Parent visible;
-    Parent[] cache;
-    public HandlerHome(Parent visible,Parent cache[])
+    MenuSecondaire ms;
+    PartieCentrale pc;
+    public HandlerHome(Parent visible,MenuSecondaire ms,PartieCentrale pc)
     {
         super();
         this.visible=visible;
-        this.cache=cache;
+        this.ms=ms;
+        this.pc=pc;
     }
     @Override
     public void handle(Event event) {
-        for(int i=0;i<cache.length;i++)
-        {
-            if(cache[i] instanceof MenuSecondaire)
-            {
                
-               ((MenuSecondaire)cache[i]).getMl().desactiver(); 
-               ((MenuSecondaire)cache[i]).getMne().desactiver(); 
+               ((MenuSecondaire)ms).getMl().desactiver(); 
+               ((MenuSecondaire)ms).getMne().desactiver(); 
                 final Timeline timeline = new Timeline();
-                final KeyValue kv = new KeyValue(cache[i].translateXProperty(), -300);
+                final KeyValue kv = new KeyValue(ms.translateXProperty(), -300);
                 final KeyFrame kf = new KeyFrame(Duration.millis(500), kv);
                 timeline.getKeyFrames().add(kf);
                 timeline.play();
-            }
-            else
-                cache[i].setVisible(false);
-        }
+                pc.desactiverEcriture();
+                pc.desactiverListe();
         visible.setVisible(true);
     }
     

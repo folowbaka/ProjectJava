@@ -21,6 +21,7 @@ public class MenuEcriture extends VBox {
         ToggleButton[] tg;
         String[] nameButton;
         final int NB_BUTTON=6;
+        
         class Eva implements EventHandler{
             int i;
          public Eva(int i)
@@ -58,5 +59,9 @@ public class MenuEcriture extends VBox {
         {
             tg[i].setSelected(false);
         }
+    }
+      public ToggleButton[] getTg()
+    {
+        return this.tg;
     }
 }

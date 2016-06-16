@@ -5,10 +5,13 @@
  */
 package gui;
 
+import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import projectjava.Adherent;
 import projectjava.Bibliotheque;
@@ -21,11 +24,13 @@ import projectjava.Livre;
 public class PartieCentrale extends StackPane {
         private MenuPrincipal mn;
         private ListeElement[] listeE;
+        private Pane[] ecriture;
         final int NB_BUTTON=4;
 
-        public PartieCentrale(MenuPrincipal mn,Bibliotheque bq)
+        public PartieCentrale(MenuPrincipal mn,Bibliotheque bq,ProjectJava pa)
         {
             super();
+            this.setId("PaneCentral");
             this.mn=mn;
             StackPane.setMargin(this.mn,new Insets(0,0,0,-200));
             this.getChildren().add(this.mn);
@@ -62,6 +67,12 @@ public class PartieCentrale extends StackPane {
                this.listeE[i].setVisible(false);
                this.getChildren().add(listeE[i]);
             }
+            this.ecriture=new Pane[2];
+            this.ecriture[0]=new FormulaireAdherent(pa);
+            this.ecriture[1]=new FormulaireLivre(pa);
+            this.getChildren().addAll(this.ecriture[0],this.ecriture[1]);
+            this.setPadding(new Insets(0, 50, 0, 50));
+            
         }
         public MenuPrincipal getMn(){
             return this.mn;
@@ -70,11 +81,22 @@ public class PartieCentrale extends StackPane {
         {
             return this.listeE;
         }
+         public Pane[] getEc()
+        {
+            return this.ecriture;
+        }
         public void desactiverListe()
         {
             for(int i=0;i<this.listeE.length;i++)
             {
                 this.listeE[i].setVisible(false);
+            }
+        }
+        public void desactiverEcriture()
+        {
+             for(int i=0;i<this.ecriture.length;i++)
+            {
+                this.ecriture[i].setVisible(false);
             }
         }
 }

@@ -8,6 +8,7 @@ package gui;
 import gui.MenuSecondaire;
 import gui.MenuPrincipal;
 import gui.ImageButton;
+import handler.HandlerButtonEcriture;
 import handler.HandlerButtonLecture;
 import handler.HandlerHome;
 import java.text.DateFormat;
@@ -58,13 +59,7 @@ public class ProjectJava extends Application {
                 home.setImages(imgHome);
                 Parent visible=pc.getMn();
                 Parent cache[]=new Parent[NB_CACHE];
-                cache[0]=ms;
-                for(int i=1;i<cache.length;i++)
-                {
-                    System.out.println(""+i);
-                    cache[i]=pc.getLe()[i-1];
-                }
-                home.setOnMousePressed(new HandlerHome(visible,cache));
+                home.setOnMousePressed(new HandlerHome(visible,ms,pc));
                 this.setLeft(home);
                 Calendar c=Calendar.getInstance();
                 DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -85,10 +80,14 @@ public class ProjectJava extends Application {
         primaryStage.setTitle("Bibliothèque");
         this.bq=Bibliotheque.loadBibliotheque("src/ressource/BDD.txt");
         this.ms=new MenuSecondaire();
-        this.pc=new PartieCentrale(new MenuPrincipal(ms),this.bq);
+        this.pc=new PartieCentrale(new MenuPrincipal(ms),this.bq,this);
         for(int i=0;i<this.ms.getMl().getTg().length;i++)
         {
         this.ms.getMl().getTg()[i].setOnMousePressed(new HandlerButtonLecture(i,this.pc));
+        }
+        for(int i=0;i<this.ms.getMne().getTg().length;i++)
+        {
+        this.ms.getMne().getTg()[i].setOnMousePressed(new HandlerButtonEcriture(i,this.pc));
         }
         NavBar nv=new NavBar();
         root.setCenter(pc);
@@ -106,6 +105,14 @@ public class ProjectJava extends Application {
         bq.saveBibliotheque("src/ressource/BDD.txt");
     }});
         
+    }
+    public Bibliotheque getBibliotheque()
+    {
+        return this.bq;
+    }
+    public PartieCentrale getPCentrale()
+    {
+        return this.pc;
     }
 
     /**
