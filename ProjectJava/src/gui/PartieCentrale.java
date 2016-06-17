@@ -43,7 +43,7 @@ public class PartieCentrale extends StackPane {
             String attribut2[]={"nom","prenom","email","profession"};*/
             //
             listeE=new ListeElement[NB_BUTTON];
-            bq.getListAdherent().get(0).emprunter(bq.getListLivre().get(0));
+            //bq.getListAdherent().get(0).emprunter(bq.getListLivre().get(2));
             this.listeE[0]=new ListeElement<Adherent>("Adherent",nomColonne,attribut,new Adherent());
             this.ecriture[2]=new ListeElementEditable("Adherent",nomColonne,attribut,new Adherent(),pa);
             this.listeE[0].setData(bq.getListAdherent());
@@ -51,6 +51,7 @@ public class PartieCentrale extends StackPane {
             //
             this.listeE[1]=new ListeElement("Retard",nomColonne,attribut,new Adherent());
             this.listeE[1].setData(bq.adherentRetardataire());
+            System.out.println(bq.adherentRetardataire().size());
             for(int i=0;i<listeE.length;i++)
             //
             nomColonne=new String[7];
@@ -83,7 +84,7 @@ public class PartieCentrale extends StackPane {
             this.ecriture[0]=new FormulaireAdherent(pa);
             this.ecriture[1]=new FormulaireLivre(pa);
             this.getChildren().addAll(this.ecriture[0],this.ecriture[1]);
-            String[] choix={"Nom"};
+            String[] choix={"Nom","Titre"};
             this.listeE[0].addSearch(choix);
             ((ListeElementEditable)this.ecriture[2]).addSearch(choix);
             this.listeE[0].getSearch().setOnKeyReleased(new HandlerRechercheAdherent(pa));

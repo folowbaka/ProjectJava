@@ -184,3 +184,8 @@ and open the template in the editor.
     -fx-min-width:120px;
     -fx-max-width:120px;
 }
+.listEmprunt 
+{
+    -fx-max-height:40px;
+    -fx-min-width:400px;
+}

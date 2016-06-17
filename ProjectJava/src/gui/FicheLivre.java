@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import projectjava.Adherent;
+import projectjava.Adresse;
 import projectjava.Livre;
 
 /**
@@ -88,6 +89,20 @@ public class FicheLivre extends Fiche{
                ((ListeElementEditable)getPa().getPCentrale().getEc()[2]).setData(adherent);
                ((ListeElementEditable)getPa().getPCentrale().getEc()[3]).setData(livre);
                clearText("Fiche Livre :");
+            }
+        });
+          this.getModifier().setOnMousePressed(new EventHandler<MouseEvent>() {
+    @Override 
+        public void handle(MouseEvent event) {
+                
+               li.setTitre(getValeur().get(0).getText());
+               li.setAuteur(getValeur().get(1).getText());
+               li.setDispo(Integer.parseInt(getValeur().get(2).getText()));
+               li.setTotal(Integer.parseInt(getValeur().get(3).getText()));
+               getPa().getPCentrale().getLe()[2].getTable().refresh();
+               getPa().getPCentrale().getLe()[3].getTable().refresh();
+               ((ListeElementEditable)getPa().getPCentrale().getEc()[3]).getTable().refresh();
+     
             }
         });
      

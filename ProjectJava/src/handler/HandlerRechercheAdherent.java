@@ -42,6 +42,8 @@ public class HandlerRechercheAdherent implements EventHandler{
                 case 0:
                 a=pa.getBibliotheque().search_adherent(recherche);
                 break;
+                case 1:
+                a=pa.getBibliotheque().search_possesseur_livre(recherche);
               }
               pa.getPCentrale().getLe()[0].setData(a);
              

@@ -118,7 +118,7 @@ public class Adherent implements Serializable {
         return emprunt_date;
     }
     
-    public boolean emprunter(Livre livre)
+    /*public boolean emprunter(Livre livre)
     {
         if (this.getNb_emprunt()>=3)
         {
@@ -135,22 +135,44 @@ public class Adherent implements Serializable {
         this.nb_emprunt++;
         livre.decNb_exemplaire_dispo();
         return true;
+    }*/
+    public boolean emprunter(Livre livre,Calendar c)
+    {
+        if (this.getNb_emprunt()>=3)
+        {
+            return false;
+        }
+        if (livre.getNb_exemplaire_dispo()==0)
+        {
+            return false;
+        }
+        
+        this.emprunt_livre[this.getNb_emprunt()]=livre;
+        this.emprunt_date[this.getNb_emprunt()]=c;
+        System.out.println(this.nb_emprunt);
+        System.out.println(c.getTime());
+        this.nb_emprunt++;
+        livre.decNb_exemplaire_dispo();
+        return true;
     }
     
     public void rendre(int id)
     {
-        if(id<this.nb_emprunt)
-        {
-            this.emprunt_date[id]=null;
-            this.emprunt_livre[id].getBibli().rendreLivre(this.emprunt_livre[id]);
-        }
-        while(id<2)
-        {
-            this.emprunt_date[id]=this.emprunt_date[id+1];
-            this.emprunt_livre[id]=this.emprunt_livre[id+1];
-            id++;
-        }
-        this.nb_emprunt--;
+        if(this.nb_emprunt>=0)
+     {
+            if(id<this.nb_emprunt)
+            {
+                this.emprunt_date[id]=null;
+                this.emprunt_livre[id].getBibli().rendreLivre(this.emprunt_livre[id]);
+            }
+            while(id<2)
+            {
+                this.emprunt_date[id]=this.emprunt_date[id+1];
+                this.emprunt_livre[id]=this.emprunt_livre[id+1];
+                id++;
+            }
+            this.nb_emprunt--;
+     }
     }
     
     public Calendar emprunteLivre(Livre livre)
@@ -209,12 +231,14 @@ public class Adherent implements Serializable {
     }
     public boolean retard()
     {
+        System.out.println("retard");
         int i=0;
         Calendar actuel=Calendar.getInstance();
         while(i<this.emprunt_date.length && !actuel.after(this.getEmprunt_date()[i]))
         {
             i++;
         }
+        System.out.println(i);
         return i<this.emprunt_date.length;
     }
         

@@ -47,7 +47,22 @@ public class Livre implements Serializable {
     {
         return this.titre;
     }
-
+    public void setTitre(String titre)
+    {
+        this.titre=titre;
+    }
+    public void setAuteur(String auteur)
+    {
+        this.auteur=auteur;
+    }
+    public void setTotal(int total)
+    {
+        this.nb_exemplaire_total=total;
+    }
+    public void setDispo(int dispo)
+    {
+        this.nb_exemplaire_dispo=dispo;
+    }
     public String getAuteur()
     {
         return this.auteur;

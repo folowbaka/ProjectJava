@@ -6,14 +6,24 @@
 package gui;
 
 import handler.HandlerButtonValiderA;
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import projectjava.Adherent;
+import projectjava.Adresse;
 import projectjava.Livre;
 
 /**
@@ -22,8 +32,13 @@ import projectjava.Livre;
  */
 public class FicheAdherent extends Fiche{
         private Adherent ad;
+        private ArrayList<ListView<Livre>> list;
+        private Button[] restituer;
+        private Button[] emprunter;
+        private DatePicker[] retour;
     public FicheAdherent(ProjectJava pa) {
         super(pa);
+        this.setId("FicheAdherent");
         this.getStyleClass().add("formAjout");
         this.formAGeneral();
         this.formAadresse();
@@ -34,7 +49,8 @@ public class FicheAdherent extends Fiche{
         this.add(this.getSousForm().get(0),0,2);
         this.add(this.sTitreForm("Adresse"), 0, 3);
         this.add(this.getSousForm().get(1),0,4);
-        this.add(this.getEdition(),0,5);
+        this.add(this.ficheEmprunt(),0,5);
+        this.add(this.getEdition(),0,6);
     }
     
     
@@ -98,6 +114,22 @@ public class FicheAdherent extends Fiche{
     {
         this.ad=ad;
     }
+    public Adherent getAd()
+    {
+        return this.ad;
+    }
+    public Button[] getRestituer()
+    {
+        return this.restituer;
+    }
+    public ArrayList<ListView<Livre>> getEmprunt()
+    {
+        return this.list;
+    }
+    public Button[] getEmprunter()
+    {
+        return this.emprunter;
+    }
     public void remplissage()
     {
         this.getTitreFiche().setText(this.getTitreFiche().getText()+" "+this.ad.getId());
@@ -130,6 +162,186 @@ public class FicheAdherent extends Fiche{
                clearText("Fiche Adherent :");
             }
         });
+       
+         this.getModifier().setOnMousePressed(new EventHandler<MouseEvent>() {
+    @Override 
+        public void handle(MouseEvent event) {
+                
+               ad.setNom(getValeur().get(0).getText());
+               ad.setPrenom(getValeur().get(1).getText());
+               ad.setEmail(getValeur().get(2).getText());
+               ad.setProfession(getValeur().get(3).getText());
+               ad.setAdresse(new Adresse(getValeur().get(4).getText(),getValeur().get(5).getText(),getValeur().get(6).getText(),getValeur().get(7).getText()));
+               getPa().getPCentrale().getLe()[0].getTable().refresh();
+               getPa().getPCentrale().getLe()[1].getTable().refresh();
+               getPa().getPCentrale().getLe()[3].getTable().refresh();
+               ((ListeElementEditable)getPa().getPCentrale().getEc()[2]).getTable().refresh();
+     
+            }
+        });
      
     }
+     public GridPane ficheEmprunt()
+    {
+        GridPane emprunt=new GridPane();
+        this.list=new ArrayList<ListView<Livre>>();
+        this.restituer=new Button[3];
+        this.emprunter=new Button[3];
+        this.retour=new DatePicker[3];
+        for(int i=0;i<3;i++)
+        {
+            this.restituer[i]=new Button("Restituer");
+            this.emprunter[i]=new Button("Emprunter");
+            this.retour[i]=new DatePicker();
+            this.list.add(new ListView<Livre>());
+            this.list.get(i).getStyleClass().add("listEmprunt");
+            emprunt.add(this.list.get(i), 0, i);
+            emprunt.add(this.restituer[i], 1, i);
+             emprunt.add(this.emprunter[i], 2, i);
+             emprunt.add(this.retour[i], 3, i);
+            
+        }
+        emprunt.setHgap(20);
+        this.restituer[0].setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override 
+            public void handle(MouseEvent event) {
+                
+               ad.rendre(0);
+               emprunter[0].setDisable(false);
+               ObservableList<Livre> items=FXCollections.observableArrayList(ad.getEmprunt_livre()[0]);
+               list.get(0).setItems(items);
+               list.get(0).refresh();
+               items=FXCollections.observableArrayList(ad.getEmprunt_livre()[1]);
+               list.get(1).setItems(items);
+               list.get(1).refresh();
+               items=FXCollections.observableArrayList(ad.getEmprunt_livre()[2]);
+               list.get(2).setItems(items);
+               list.get(2).refresh();
+               System.out.println(ad.getEmprunt_livre()[0]);
+               if(ad.getEmprunt_livre()[0]==null)
+               {
+                   restituer[0].setDisable(true);
+                   emprunter[0].setDisable(false);
+                   list.get(0).setEditable(true);
+               }
+               getPa().getPCentrale().getLe()[2].getTable().refresh();
+               
+            }});
+        this.restituer[1].setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override 
+            public void handle(MouseEvent event) {
+                
+               ad.rendre(1);
+               ObservableList<Livre> items=FXCollections.observableArrayList(ad.getEmprunt_livre()[1]);
+               list.get(1).setItems(items);
+               list.get(1).refresh();
+               items=FXCollections.observableArrayList(ad.getEmprunt_livre()[2]);
+               list.get(2).setItems(items);
+               list.get(2).refresh();
+              System.out.println(ad.getEmprunt_livre()[1]);
+              if(ad.getEmprunt_livre()[1]==null)
+               {
+                   restituer[1].setDisable(true);
+                   emprunter[1].setDisable(false);
+                   list.get(1).setEditable(true);
+               }
+               getPa().getPCentrale().getLe()[2].getTable().refresh();
+               
+            }});
+        this.restituer[2].setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override 
+            public void handle(MouseEvent event) {
+                
+               ad.rendre(2);
+               ObservableList<Livre> items=FXCollections.observableArrayList(ad.getEmprunt_livre()[2]);
+               list.get(2).setItems(items);
+               list.get(2).refresh();
+               System.out.println(ad.getEmprunt_livre()[2]);
+               if(ad.getEmprunt_livre()[2]==null)
+               {
+                   restituer[2].setDisable(true);
+                   emprunter[2].setDisable(false);
+                   list.get(2).setEditable(true);
+               }
+               getPa().getPCentrale().getLe()[2].getTable().refresh();
+               
+            }});
+         this.emprunter[0].setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override 
+            public void handle(MouseEvent event) {
+                
+              if(list.get(0).getItems().get(0)!=null && retour[0].getValue()!=null)
+               {
+                Calendar c=Calendar.getInstance();
+                c.setTime(Date.valueOf(retour[0].getValue()));
+                System.out.println(c.getTime());
+                ad.emprunter(list.get(0).getItems().get(0),c);
+               ObservableList<Livre> items=FXCollections.observableArrayList(ad.getEmprunt_livre()[0]);
+               list.get(0).setItems(items);
+               list.get(0).refresh();
+               if(ad.getEmprunt_livre()[0]!=null)
+               {
+                   restituer[0].setDisable(false);
+                   emprunter[0].setDisable(true);
+                   list.get(0).setEditable(false);
+               }
+               getPa().getPCentrale().getLe()[1].setData(getPa().getBibliotheque().adherentRetardataire());
+               getPa().getPCentrale().getLe()[1].getTable().refresh();
+               getPa().getPCentrale().getLe()[2].getTable().refresh();
+               }
+               
+               
+            }});
+          this.emprunter[1].setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override 
+            public void handle(MouseEvent event) {
+                
+              if(list.get(1).getItems().get(0)!=null && retour[1].getValue()!=null)
+               {
+                Calendar c=Calendar.getInstance();
+                c.setTime(Date.valueOf(retour[1].getValue()));
+                 ad.emprunter(list.get(1).getItems().get(0),c);
+               ObservableList<Livre> items=FXCollections.observableArrayList(ad.getEmprunt_livre()[1]);
+               list.get(2).setItems(items);
+               list.get(2).refresh();
+               if(ad.getEmprunt_livre()[1]!=null)
+               {
+                   restituer[1].setDisable(false);
+                   emprunter[1].setDisable(true);
+                   list.get(1).setEditable(false);
+               }
+               getPa().getPCentrale().getLe()[1].setData(getPa().getBibliotheque().adherentRetardataire());
+               getPa().getPCentrale().getLe()[1].getTable().refresh();
+               getPa().getPCentrale().getLe()[2].getTable().refresh();
+               }
+               
+            }});
+           this.emprunter[2].setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override 
+            public void handle(MouseEvent event) {
+                System.out.println(retour[2].getValue());
+                
+               if(list.get(2).getItems().get(0)!=null && retour[2].getValue()!=null)
+               {
+                Calendar c=Calendar.getInstance();
+                c.setTime(Date.valueOf(retour[2].getValue()));
+                ad.emprunter(list.get(2).getItems().get(0),c);
+               ObservableList<Livre> items=FXCollections.observableArrayList(ad.getEmprunt_livre()[2]);
+               list.get(2).setItems(items);
+               list.get(2).refresh();
+               if(ad.getEmprunt_livre()[2]!=null)
+               {
+                   restituer[2].setDisable(false);
+                   emprunter[2].setDisable(true);
+                   list.get(2).setEditable(false);
+               }
+               getPa().getPCentrale().getLe()[1].setData(getPa().getBibliotheque().adherentRetardataire());
+               getPa().getPCentrale().getLe()[1].getTable().refresh();
+               getPa().getPCentrale().getLe()[2].getTable().refresh();
+               }
+               
+            }});
+        return emprunt;
+    }
+    
 }

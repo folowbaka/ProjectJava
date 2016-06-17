@@ -18,7 +18,7 @@ import javafx.scene.layout.VBox;
 public class MenuEcriture extends VBox {
         ToggleButton[] tg;
         String[] nameButton;
-        final int NB_BUTTON=6;
+        final int NB_BUTTON=4;
         
         class Eva implements EventHandler{
             int i;
@@ -38,7 +38,7 @@ public class MenuEcriture extends VBox {
         super();
         this.setId("menu-ecriture");
         tg=new ToggleButton[NB_BUTTON];
-        String nameButton[]={"Ajouter Adhérent","Ajouter Livre","Supprimer Adhérent","Supprimer Livre","Emprunt","Restitution"};
+        String nameButton[]={"Ajouter Adhérent","Ajouter Livre","Editer Adhérent","Editer Livre"};
         this.nameButton=nameButton;
         ToggleGroup tgg =new ToggleGroup();
         for(int i=0;i<NB_BUTTON;i++)

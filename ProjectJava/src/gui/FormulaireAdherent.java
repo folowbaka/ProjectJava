@@ -6,9 +6,14 @@
 package gui;
 
 import handler.HandlerButtonValiderA;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import projectjava.Livre;
 /**
  *
  * @author david
@@ -90,7 +95,6 @@ public class FormulaireAdherent extends Formulaire {
        super.validerForm();
        this.getValidation().setOnMousePressed(new HandlerButtonValiderA(this.getPa()));
     }
-    
 
    
 }

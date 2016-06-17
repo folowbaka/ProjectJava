@@ -45,6 +45,21 @@ public class Bibliotheque implements Serializable {
             this.adherent.remove(adh);
         }
     }
+     public int foundAdherent(Adherent adh)
+    {
+        int i=0;
+        if(this.adherent.contains(adh))
+        {
+          for(Adherent ad:this.adherent)
+            {
+                if(ad==adh)
+                {
+                    i++;
+                }
+            }
+        }
+        return i;
+    }
     
     public void removeAdherent_id(String id)
     {

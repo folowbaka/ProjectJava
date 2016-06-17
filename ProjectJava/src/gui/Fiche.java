@@ -66,6 +66,10 @@ public class Fiche extends GridPane{
     {
         return this.titreFiche;
     }
+    public  Button getModifier()
+    {
+        return this.modifier;
+    }
     public void desactiverTextF()
     {
 
