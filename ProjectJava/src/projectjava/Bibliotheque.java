@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import static java.lang.Integer.max;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -112,7 +113,7 @@ public class Bibliotheque implements Serializable {
         {
             if (livre_.getCode1().equals(type))
             {
-                compteur++;
+                compteur=max(compteur,livre_.getCode2());
             }
         }
         

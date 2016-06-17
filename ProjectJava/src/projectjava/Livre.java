@@ -27,6 +27,14 @@ public class Livre implements Serializable {
     }
     public Livre(String titre, String auteur, String code1, int nb_exemplaire, Bibliotheque bibli)
     {
+        if(code1.length()>3)
+        {
+            code1=code1.subSequence(0, 2).toString();
+        }
+        while(code1.length()<3)
+        {
+            code1=code1+"#";
+        }
         this.titre=Perso.toTitleCase(titre);
         this.auteur=Perso.toTitleCase(auteur);
         this.code1=code1.toUpperCase();
@@ -38,7 +46,7 @@ public class Livre implements Serializable {
     
     public Livre(String titre, String auteur, String code, Bibliotheque bibli)
     {
-        this(titre,auteur,code,(new Random()).nextInt(100),bibli);
+        this(titre,auteur,code,(new Random()).nextInt(100)+1,bibli);
     }
 
     public Bibliotheque getBibli()

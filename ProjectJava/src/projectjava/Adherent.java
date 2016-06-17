@@ -32,7 +32,7 @@ public class Adherent implements Serializable {
     }
       
     public Adherent(int id, String nom, String prenom, String email, String profession, Adresse adresse)
-    {
+    { 
         this.setId(String.valueOf(id));
         this.setNom(Perso.toTitleCase(nom));
         this.setPrenom(Perso.toTitleCase(prenom));
