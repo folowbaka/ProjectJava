@@ -10,14 +10,7 @@ public class Projet {
 
     public static void main(String[] args) {
         Bibliotheque bibli_test=new Bibliotheque();
-        String hauteur="Nikudan";
-        Livre livre_test=new Livre("Walid Adventure1","Cerin","HEN",1,bibli_test);
-        Adherent adh_test=new Adherent(bibli_test.getID(),"Nikudan","Roule","azeaze@gmail.com","Grateurq",new Adresse("29","rue des grateurq","99999","Partout"));
         
-        //bibli_test.addLivre(livre_test);
-        //bibli_test.addLivre(new Livre("Walid Adventure2","Boruto","HEN",1,bibli_test));
-        //bibli_test.addAdherent(adh_test);
-        //bibli_test.getListAdherent().get(0).emprunterRetard(bibli_test.getListLivre().get(0));
         bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Abdellah","Ghiles","Bananier"));
         bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Ben Aissa","Aya","Etudiante"));
         bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Boyer","Guillaume","Footballeur"));
@@ -57,51 +50,10 @@ public class Projet {
         bibli_test.addLivre(new Livre("Reussire son brushing","Harumix","ART",bibli_test));
         bibli_test.addLivre(new Livre("L'economie des betrave en bolivie","Exaltion","ECO",bibli_test));
         bibli_test.addLivre(new Livre("Travailler seul ou en groupe","David","SCI",bibli_test));
-//        
-//        bibli_test.addLivre(new Livre("","","",bibli_test));
-//        bibli_test.addLivre(new Livre("","","",bibli_test));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Galante","David","Plombier",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Dieu","Arnaud","Coiffeur",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Boyer","Guyaume","Sodomite",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Hedili","Abdelsalem","Pas tres Charlie",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Moustawi","Walid","Malade",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Kissi","Naim","Mediateur",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Koulibay","Amedi","Salafiste",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"fdsfsd","fsfsd","ezez",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Galente","David","Plombier",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Dieu","Arnaud","Coiffeur",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Boyer","Guyaume","Sodomite",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Hedili","Abdelsalem","Pas tres Charlie",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Moustawi","Walid","Malade",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Kissi","Naim","Mediateur",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Koulibay","Amedi","Salafiste",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"fdsfsd","fsfsd","ezez",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Galente","David","Plombier",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Dieu","Arnaud","adresse1@gmail.com","Coiffeur",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Boyer","Guyaume","adresse1@gmail.com","Sodomite",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Hedili","Abdelsalem","adresse1@gmail.com","Pas tres Charlie",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Moustawi","Walid","adresse1@gmail.com","Malade",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Kissi","Naim","adresse1@gmail.com","Mediateur",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Koulibay","Amedi","adresse1@gmail.com","Salafiste",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"fdsfsd","fsfsd","adresse1@gmail.com","ezez",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Galente","David","adresse1@gmail.com","Plombier",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Dieu","Arnaud","adresse1@gmail.com","Coiffeur",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Boyer","Guyaume","adresse1@gmail.com","Sodomite",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Hedili","Abdelsalem","adresse1@gmail.com","Pas tres Charlie",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Moustawi","Walid","adresse1@gmail.com","Malade",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Kissi","Naim","adresse1@gmail.com","Mediateur",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"Koulibay","Amedi","adresse1@gmail.com","Salafiste",new Adresse("29","rue des grateur","99999","Partout")));
-//        bibli_test.addAdherent(new Adherent(bibli_test.getID(),"fdsfsd","fsfsd","adresse1@gmail.com","ezez",new Adresse("29","rue des grateur","99999","Partout")));
         
         System.out.println(bibli_test.Livre_toString());
-        System.out.println(adh_test.toString());
-        //adh_test.emprunter(livre_test);
-        System.out.println(adh_test.toString());
-        System.out.println(bibli_test.Livre_toString());
-        
+        System.out.println(bibli_test.Adherent_toString());
+
         System.out.println(bibli_test.saveBibliotheque("src\\ressource\\BDD.txt"));
-        
-        Bibliotheque bibli_test2=loadBibliotheque("src\\ressource\\BDD.txt");
-        System.out.println(bibli_test2.Livre_toString());
     }  
 }
