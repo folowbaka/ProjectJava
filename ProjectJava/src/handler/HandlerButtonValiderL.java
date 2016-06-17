@@ -7,6 +7,7 @@ package handler;
 
 import gui.FormulaireAdherent;
 import gui.FormulaireLivre;
+import gui.ListeElementEditable;
 import gui.ProjectJava;
 import java.util.ArrayList;
 import javafx.event.Event;
@@ -31,5 +32,6 @@ public class HandlerButtonValiderL implements EventHandler{
        pa.getBibliotheque().addLivre(new Livre(va.get(0),va.get(1),va.get(2),Integer.parseInt(va.get(3)),pa.getBibliotheque()));
        System.out.println("Ajout Réussi");
        pa.getPCentrale().getLe()[2].setData(pa.getBibliotheque().getListLivre());
+       ((ListeElementEditable)pa.getPCentrale().getEc()[3]).setData(pa.getBibliotheque().getListAdherent());
     }
 }

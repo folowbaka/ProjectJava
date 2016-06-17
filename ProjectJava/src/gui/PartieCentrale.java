@@ -14,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import projectjava.Adherent;
 import projectjava.Bibliotheque;
+import projectjava.EmpruntE;
 import projectjava.Livre;
 
 /**
@@ -66,7 +67,11 @@ public class PartieCentrale extends StackPane {
             ((ListeElementEditable)this.ecriture[3]).setData(bq.getListLivre());
             System.out.println(bq.getListLivre().get(0).getAuteur());
             //
-            this.listeE[3]=new ListeElement("Emprunt en cours",nomColonne,attribut,new Livre());
+            nomColonne=new String[4];
+            nomColonne[0]="Titre";nomColonne[1]="Nom";nomColonne[2]="Prenom";nomColonne[3]="D_Retour";
+            attribut=new String[4];
+            attribut[0]="titre";attribut[1]="s2";attribut[2]="s3";attribut[3]="s4";
+            this.listeE[3]=new ListeElement<EmpruntE>("Emprunt en cours",nomColonne,attribut,new EmpruntE());
             this.listeE[3].setData(bq.livreEmprunter());
             this.ecriture[4]=new FicheAdherent(pa);
             this.ecriture[5]=new FicheLivre(pa);

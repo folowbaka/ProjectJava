@@ -225,6 +225,8 @@ public class FicheAdherent extends Fiche{
                    list.get(0).setEditable(true);
                }
                getPa().getPCentrale().getLe()[2].getTable().refresh();
+               getPa().getPCentrale().getLe()[3].setData(getPa().getBibliotheque().livreEmprunter());
+               getPa().getPCentrale().getLe()[3].getTable().refresh();
                
             }});
         this.restituer[1].setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -246,6 +248,8 @@ public class FicheAdherent extends Fiche{
                    list.get(1).setEditable(true);
                }
                getPa().getPCentrale().getLe()[2].getTable().refresh();
+               getPa().getPCentrale().getLe()[3].setData(getPa().getBibliotheque().livreEmprunter());
+               getPa().getPCentrale().getLe()[3].getTable().refresh();
                
             }});
         this.restituer[2].setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -264,6 +268,8 @@ public class FicheAdherent extends Fiche{
                    list.get(2).setEditable(true);
                }
                getPa().getPCentrale().getLe()[2].getTable().refresh();
+               getPa().getPCentrale().getLe()[3].setData(getPa().getBibliotheque().livreEmprunter());
+               getPa().getPCentrale().getLe()[3].getTable().refresh();
                
             }});
          this.emprunter[0].setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -288,6 +294,8 @@ public class FicheAdherent extends Fiche{
                getPa().getPCentrale().getLe()[1].setData(getPa().getBibliotheque().adherentRetardataire());
                getPa().getPCentrale().getLe()[1].getTable().refresh();
                getPa().getPCentrale().getLe()[2].getTable().refresh();
+               getPa().getPCentrale().getLe()[3].setData(getPa().getBibliotheque().livreEmprunter());
+               getPa().getPCentrale().getLe()[3].getTable().refresh();
                }
                
                
@@ -313,6 +321,8 @@ public class FicheAdherent extends Fiche{
                getPa().getPCentrale().getLe()[1].setData(getPa().getBibliotheque().adherentRetardataire());
                getPa().getPCentrale().getLe()[1].getTable().refresh();
                getPa().getPCentrale().getLe()[2].getTable().refresh();
+               getPa().getPCentrale().getLe()[3].setData(getPa().getBibliotheque().livreEmprunter());
+               getPa().getPCentrale().getLe()[3].getTable().refresh();
                }
                
             }});
@@ -338,6 +348,8 @@ public class FicheAdherent extends Fiche{
                getPa().getPCentrale().getLe()[1].setData(getPa().getBibliotheque().adherentRetardataire());
                getPa().getPCentrale().getLe()[1].getTable().refresh();
                getPa().getPCentrale().getLe()[2].getTable().refresh();
+               getPa().getPCentrale().getLe()[3].setData(getPa().getBibliotheque().livreEmprunter());
+               getPa().getPCentrale().getLe()[3].getTable().refresh();
                }
                
             }});

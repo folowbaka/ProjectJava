@@ -130,9 +130,9 @@ public class Bibliotheque implements Serializable {
         return this.livre;
     }
     
-    public ArrayList<Livre> livreEmprunter()
+    public ArrayList<EmpruntE> livreEmprunter()
     {
-        ArrayList resultat=new ArrayList();
+        ArrayList<EmpruntE> resultat=new ArrayList<EmpruntE>();
         SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
 
         for(Livre livre_:this.livre)
@@ -143,12 +143,12 @@ public class Bibliotheque implements Serializable {
                 {
                     if(adh.emprunteLivre(livre_)!=null)
                     {
-                        resultat.add(new String[]{livre_.getTitre(),adh.getNom(),adh.getPrenom(),format1.format(adh.emprunteLivre(livre_).getTime())});                      
+                        resultat.add(new EmpruntE(livre_.getTitre(),adh.getNom(),adh.getPrenom(),format1.format(adh.emprunteLivre(livre_).getTime())));                      
                     }
                 }
             }
         }
-        
+        System.out.println(resultat.get(0).toString());
         return resultat;
     }
         
