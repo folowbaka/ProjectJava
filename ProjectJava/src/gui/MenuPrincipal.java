@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
  */
 package gui;
 
@@ -15,10 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
-/**
- *
- * @author david
- */
 public class MenuPrincipal extends GridPane{
     private Button btnMl;
     private Button btnMe;

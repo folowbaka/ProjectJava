@@ -1,3 +1,7 @@
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
+ */
 package projectjava;
 
 import java.io.Serializable;
@@ -42,7 +46,7 @@ public class Adherent implements Serializable {
     
     public Adherent(int id, String nom, String prenom, String profession)
     {
-        this(id,nom,prenom,"bibli."+String.valueOf(id)+"@bibli.net",profession,new Adresse(String.valueOf(id),"rue du Random","93800","Epinay Sur Seine"));
+        this(id,nom,prenom,nom.toLowerCase().replace(" ", "_")+"."+prenom.toLowerCase().replace(" ", "")+"@bibli.net",profession,new Adresse(String.valueOf(id),"rue du Random","93800","Epinay Sur Seine"));
     }
     
     public String getId()
@@ -136,6 +140,7 @@ public class Adherent implements Serializable {
         livre.decNb_exemplaire_dispo();
         return true;
     }*/
+    
     public boolean emprunter(Livre livre,Calendar c)
     {
         if (this.getNb_emprunt()>=3)
@@ -169,6 +174,8 @@ public class Adherent implements Serializable {
             {
                 this.emprunt_date[id]=this.emprunt_date[id+1];
                 this.emprunt_livre[id]=this.emprunt_livre[id+1];
+                this.emprunt_date[id+1]=null;
+                this.emprunt_livre[id+1]=null;
                 id++;
             }
             this.nb_emprunt--;

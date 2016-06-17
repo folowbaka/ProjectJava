@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
  */
 package gui;
 
-import gui.MenuSecondaire;
-import gui.MenuPrincipal;
-import gui.ImageButton;
 import handler.HandlerButtonEcriture;
 import handler.HandlerButtonLecture;
 import handler.HandlerHome;
@@ -26,10 +22,6 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import projectjava.Bibliotheque;
 
-/**
- *
- * @author david
- */
 public class ProjectJava extends Application {
         private MenuSecondaire ms;
         private PartieCentrale pc;
@@ -40,7 +32,7 @@ public class ProjectJava extends Application {
             private MenuSecondaire mss;
             private MenuPrincipal mnn;
             public NavBar(){
-                super();
+            super();
             this.setId("navbar");
                 
                 home=new ImageButton();
@@ -48,7 +40,7 @@ public class ProjectJava extends Application {
                 Image imgHome=new Image("ressource/home.png");
                 home.setImages(imgHome);
                 Parent visible=pc.getMn();
-                Parent cache[]=new Parent[NB_CACHE];
+                //Parent cache[]=new Parent[NB_CACHE];
                 home.setOnMousePressed(new HandlerHome(visible,ms,pc));
                 this.setLeft(home);
                 Calendar c=Calendar.getInstance();
@@ -63,7 +55,6 @@ public class ProjectJava extends Application {
     @Override
     public void start(Stage primaryStage) {     
         BorderPane root = new BorderPane();
-        //Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
         double longueurScene=1280;
         double hauteurScene=900;
         Scene scene = new Scene(root,longueurScene,hauteurScene);
@@ -73,17 +64,16 @@ public class ProjectJava extends Application {
         this.pc=new PartieCentrale(new MenuPrincipal(ms),this.bq,this);
         for(int i=0;i<this.ms.getMl().getTg().length;i++)
         {
-        this.ms.getMl().getTg()[i].setOnMousePressed(new HandlerButtonLecture(i,this.pc));
+            this.ms.getMl().getTg()[i].setOnMousePressed(new HandlerButtonLecture(i,this.pc));
         }
         for(int i=0;i<this.ms.getMne().getTg().length;i++)
         {
-        this.ms.getMne().getTg()[i].setOnMousePressed(new HandlerButtonEcriture(i,this.pc));
+            this.ms.getMne().getTg()[i].setOnMousePressed(new HandlerButtonEcriture(i,this.pc));
         }
         NavBar nv=new NavBar();
         root.setCenter(pc);
         root.setLeft(ms);
         root.setTop(nv);
-        //primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         
         scene.getStylesheets().add(ProjectJava.class.getResource("Bibliotheque.css").toExternalForm());
@@ -105,9 +95,6 @@ public class ProjectJava extends Application {
         return this.pc;
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }

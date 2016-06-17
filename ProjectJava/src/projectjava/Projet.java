@@ -1,4 +1,7 @@
-
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
+ */
 package projectjava;
 
 import static projectjava.Bibliotheque.loadBibliotheque;

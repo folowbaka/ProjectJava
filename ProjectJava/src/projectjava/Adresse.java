@@ -1,4 +1,7 @@
-
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
+ */
 package projectjava;
 
 import java.io.Serializable;

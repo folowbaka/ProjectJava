@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
  */
 package gui;
 
@@ -9,10 +8,6 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 
-/**
- *
- * @author david
- */
 public class MenuLecture extends VBox{
         
         ToggleButton[] tg;

@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
  */
 package gui;
 
@@ -19,14 +18,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import projectjava.Adherent;
-import projectjava.EmpruntE;
 import projectjava.Livre;
 
-/**
- *
- * @author david
- */
 public class ListeElement<T> extends GridPane {
     private TableView<T> table;
     private ObservableList<T> data;
@@ -122,16 +115,15 @@ public class ListeElement<T> extends GridPane {
             search.clear();
             debRecherche++;
         }
-    }
-        });
+    }});
         
     }
     public void TitreListe(String s)
     {
         StackPane titreTable=new StackPane();
         Label titre=new Label(s);
-         titreTable.setId("TitreTable");
-         titreTable.getChildren().add(titre);
-         this.add(titreTable, 0, 0);
+        titreTable.setId("TitreTable");
+        titreTable.getChildren().add(titre);
+        this.add(titreTable, 0, 0);
     }
 }

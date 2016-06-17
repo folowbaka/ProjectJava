@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
  */
 package gui;
 
@@ -13,24 +12,24 @@ import javafx.scene.input.MouseEvent;
 import projectjava.Adherent;
 import projectjava.Livre;
 
-/**
- *
- * @author david
- */
 public class ListeElementEditable<T> extends ListeElement {
     
     private ProjectJava pa;
     final private int MAXLIVRE=3;
-    public ListeElementEditable(String nomTable, String[] nomColonne, String[] attribut, T test,ProjectJava pa) {
+    public ListeElementEditable(String nomTable, String[] nomColonne, String[] attribut, T test,ProjectJava pa) 
+    {
         super(nomTable, nomColonne, attribut, test);
         this.pa=pa;
         this.getStyleClass().add("TableEditable");
         
         
-        this.getTable().setOnMousePressed(new EventHandler<MouseEvent>() {
+        this.getTable().setOnMousePressed(new EventHandler<MouseEvent>() 
+        {
         @Override 
-        public void handle(MouseEvent event) {
-            if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+        public void handle(MouseEvent event) 
+        {
+            if (event.isPrimaryButtonDown() && event.getClickCount() == 2) 
+            {
                 setVisible(false);
                 if(test instanceof Adherent)
                 {
@@ -58,13 +57,12 @@ public class ListeElementEditable<T> extends ListeElement {
                             ((FicheAdherent)pa.getPCentrale().getEc()[4]).getEmprunter()[i].setDisable(true);
                        }
                    }
-                    ((FicheAdherent)pa.getPCentrale().getEc()[4]).setVisible(true);
+                   ((FicheAdherent)pa.getPCentrale().getEc()[4]).setVisible(true);
                 }
                 else if(test instanceof Livre)
                 {
                     ((FicheLivre)pa.getPCentrale().getEc()[5]).setLi((Livre)getTable().getSelectionModel().getSelectedItem());
-                   ((FicheLivre)pa.getPCentrale().getEc()[5]).remplissage();
-                   
+                    ((FicheLivre)pa.getPCentrale().getEc()[5]).remplissage();
                     ((FicheLivre)pa.getPCentrale().getEc()[5]).setVisible(true);
                 }
             

@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
  */
 package gui;
 
@@ -14,10 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import projectjava.Livre;
-/**
- *
- * @author david
- */
+
 public class FormulaireAdherent extends Formulaire {
     public FormulaireAdherent(ProjectJava pa)
     {
@@ -95,6 +91,4 @@ public class FormulaireAdherent extends Formulaire {
        super.validerForm();
        this.getValidation().setOnMousePressed(new HandlerButtonValiderA(this.getPa()));
     }
-
-   
 }

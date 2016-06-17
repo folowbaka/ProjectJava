@@ -1,4 +1,7 @@
-
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
+ */
 package projectjava;
 
 import java.io.Serializable;
@@ -57,11 +60,20 @@ public class Livre implements Serializable {
     }
     public void setTotal(int total)
     {
-        this.nb_exemplaire_total=total;
+        if(total-this.nb_exemplaire_total+this.nb_exemplaire_dispo>=0)
+        {
+            this.nb_exemplaire_dispo+=total-this.nb_exemplaire_total;
+            this.nb_exemplaire_total=total;
+        }
+        
     }
     public void setDispo(int dispo)
     {
-        this.nb_exemplaire_dispo=dispo;
+        if(dispo>0)
+        {
+            //this.nb_exemplaire_total+=dispo-this.nb_exemplaire_dispo;
+            this.nb_exemplaire_dispo=dispo;
+        }
     }
     public String getAuteur()
     {

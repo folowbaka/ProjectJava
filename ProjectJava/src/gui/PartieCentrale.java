@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
  */
 package gui;
 
@@ -17,10 +16,6 @@ import projectjava.Bibliotheque;
 import projectjava.EmpruntE;
 import projectjava.Livre;
 
-/**
- *
- * @author david
- */
 public class PartieCentrale extends StackPane {
         private MenuPrincipal mn;
         private ListeElement[] listeE;
@@ -38,23 +33,14 @@ public class PartieCentrale extends StackPane {
             this.getChildren().add(this.mn);
             String nomColonne[]={"Nom","Prenom","@Mail","Profession"};
             String attribut[]={"nom","prenom","email","profession"};
-            /*String nomColonne1[]={"Titre","Auteur","Exemplaire dispo","Exemplaire total"};
-            String attribut1[]={"titre","auteur","exemplaire dispo","exemplaire total"};
-            String nomColonne2[]={"Nom","Prenom","@Mail","Profession"};
-            String attribut2[]={"nom","prenom","email","profession"};*/
-            //
             listeE=new ListeElement[NB_BUTTON];
-            //bq.getListAdherent().get(0).emprunter(bq.getListLivre().get(2));
             this.listeE[0]=new ListeElement<Adherent>("Adherent",nomColonne,attribut,new Adherent());
             this.ecriture[2]=new ListeElementEditable("Adherent",nomColonne,attribut,new Adherent(),pa);
             this.listeE[0].setData(bq.getListAdherent());
             ((ListeElementEditable)this.ecriture[2]).setData(bq.getListAdherent());
-            //
             this.listeE[1]=new ListeElement("Retard",nomColonne,attribut,new Adherent());
             this.listeE[1].setData(bq.adherentRetardataire());
             System.out.println(bq.adherentRetardataire().size());
-            for(int i=0;i<listeE.length;i++)
-            //
             nomColonne=new String[7];
             nomColonne[0]="Titre";nomColonne[1]="Auteur";nomColonne[2]="Code";nomColonne[3]="Code1";
             nomColonne[4]="Code2";nomColonne[5]="NB_Exemplaire";nomColonne[6]="NB_Disponible";
@@ -66,7 +52,6 @@ public class PartieCentrale extends StackPane {
             this.listeE[2].setData(bq.getListLivre());
             ((ListeElementEditable)this.ecriture[3]).setData(bq.getListLivre());
             System.out.println(bq.getListLivre().get(0).getAuteur());
-            //
             nomColonne=new String[4];
             nomColonne[0]="Titre";nomColonne[1]="Nom";nomColonne[2]="Prenom";nomColonne[3]="D_Retour";
             attribut=new String[4];
@@ -89,15 +74,14 @@ public class PartieCentrale extends StackPane {
             this.ecriture[0]=new FormulaireAdherent(pa);
             this.ecriture[1]=new FormulaireLivre(pa);
             this.getChildren().addAll(this.ecriture[0],this.ecriture[1]);
-            String[] choix={"Nom","Titre"};
+            String[] choix={"Personne","Mail","Profession"};
             this.listeE[0].addSearch(choix);
             ((ListeElementEditable)this.ecriture[2]).addSearch(choix);
             this.listeE[0].getSearch().setOnKeyReleased(new HandlerRechercheAdherent(pa));
             ((ListeElementEditable)this.ecriture[2]).getSearch().setOnKeyReleased(new HandlerRechercheAdherentEcriture(pa));
-            choix=new String[2];
-            choix[0]="Titre";choix[1]="Auteur";
-            this.listeE[2].addSearch(choix);
-            ((ListeElementEditable)this.ecriture[3]).addSearch(choix);
+            String[] choix2={"Titre","Auteur","Genre"};
+            this.listeE[2].addSearch(choix2);
+            ((ListeElementEditable)this.ecriture[3]).addSearch(choix2);
             this.listeE[2].getSearch().setOnKeyReleased(new HandlerRechercheLivre(pa));
             ((ListeElementEditable)this.ecriture[3]).getSearch().setOnKeyReleased(new HandlerRechercheLivreEcriture(pa));
             this.setPadding(new Insets(0, 50, 0, 50));

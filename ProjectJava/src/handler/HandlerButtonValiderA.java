@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
  */
 package handler;
 
@@ -15,10 +14,6 @@ import javafx.event.EventHandler;
 import projectjava.Adherent;
 import projectjava.Adresse;
 
-/**
- *
- * @author david
- */
 public class HandlerButtonValiderA implements EventHandler {
 
     private ProjectJava pa;

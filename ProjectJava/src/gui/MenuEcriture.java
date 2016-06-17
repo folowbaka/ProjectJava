@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
  */
 package gui;
 
@@ -11,28 +10,27 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 
-/**
- *
- * @author david
- */
 public class MenuEcriture extends VBox {
-        ToggleButton[] tg;
-        String[] nameButton;
-        final int NB_BUTTON=4;
+    ToggleButton[] tg;
+    String[] nameButton;
+    final int NB_BUTTON=4;
         
-        class Eva implements EventHandler{
-            int i;
-         public Eva(int i)
-         {
-             super();
-             this.i=i;
-         }
+    class Eva implements EventHandler
+    {
+        int i;
+        public Eva(int i)
+        {
+            super();
+            this.i=i;
+        }
+
         @Override
-        public void handle(Event event) {
-             System.out.println(i);
-        }
-            
-        }
+        public void handle(Event event) 
+        {
+            System.out.println(i);
+        }     
+    }
+        
     public MenuEcriture()
     {
         super();
@@ -51,14 +49,15 @@ public class MenuEcriture extends VBox {
         this.setVisible(false);
     }
     
-     public void desactiver()
+    public void desactiver()
     {
         for(int i=0;i<this.tg.length;i++)
         {
             tg[i].setSelected(false);
         }
     }
-      public ToggleButton[] getTg()
+    
+    public ToggleButton[] getTg()
     {
         return this.tg;
     }

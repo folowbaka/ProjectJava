@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
  */
 package gui;
 
@@ -15,10 +14,6 @@ import projectjava.Adherent;
 import projectjava.Adresse;
 import projectjava.Livre;
 
-/**
- *
- * @author david
- */
 public class FicheLivre extends Fiche{
     private Livre li;
     public FicheLivre(ProjectJava pa) {

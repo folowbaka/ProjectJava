@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
  */
 package handler;
 
@@ -12,10 +11,6 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import projectjava.Adherent;
 
-/**
- *
- * @author david
- */
 public class HandlerRechercheAdherentEcriture implements EventHandler {
      ProjectJava pa;
     public HandlerRechercheAdherentEcriture(ProjectJava pa)
@@ -33,7 +28,13 @@ public class HandlerRechercheAdherentEcriture implements EventHandler {
               switch(i)
               {
                 case 0:
-                a=pa.getBibliotheque().search_adherent(recherche);
+                    a=pa.getBibliotheque().search_adherent(recherche);
+                break;
+                case 1:
+                    a=pa.getBibliotheque().search_adherent_mail(recherche);
+                break;
+                case 2:
+                    a=pa.getBibliotheque().search_adherent_profession(recherche);
                 break;
               }
               ((ListeElementEditable)pa.getPCentrale().getEc()[2]).setData(a);

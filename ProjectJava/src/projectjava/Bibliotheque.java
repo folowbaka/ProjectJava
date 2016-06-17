@@ -1,4 +1,7 @@
-
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
+ */
 package projectjava;
 
 import java.io.FileInputStream;
@@ -148,7 +151,6 @@ public class Bibliotheque implements Serializable {
                 }
             }
         }
-        System.out.println(resultat.get(0).toString());
         return resultat;
     }
         
@@ -339,6 +341,20 @@ public class Bibliotheque implements Serializable {
                 resultat.add(adh);
             }
         }
+        return resultat;
+    }
+
+    public ArrayList<Livre> search_livre_genre(String genre) {
+        ArrayList<Livre> resultat=new ArrayList<Livre>();
+        
+        for (Livre livre_:this.livre)
+        {
+            if(livre_.getCode1().toLowerCase().contains(genre.toLowerCase()))
+            {
+                resultat.add(livre_);
+            }
+        }
+        
         return resultat;
     }
 }

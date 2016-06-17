@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
  */
 package gui;
 
@@ -26,10 +25,6 @@ import projectjava.Adherent;
 import projectjava.Adresse;
 import projectjava.Livre;
 
-/**
- *
- * @author david
- */
 public class FicheAdherent extends Fiche{
         private Adherent ad;
         private ArrayList<ListView<Livre>> list;
@@ -224,6 +219,7 @@ public class FicheAdherent extends Fiche{
                    emprunter[0].setDisable(false);
                    list.get(0).setEditable(true);
                }
+                getPa().getPCentrale().getLe()[2].setData(getPa().getBibliotheque().adherentRetardataire());
                getPa().getPCentrale().getLe()[2].getTable().refresh();
                getPa().getPCentrale().getLe()[3].setData(getPa().getBibliotheque().livreEmprunter());
                getPa().getPCentrale().getLe()[3].getTable().refresh();
@@ -247,6 +243,7 @@ public class FicheAdherent extends Fiche{
                    emprunter[1].setDisable(false);
                    list.get(1).setEditable(true);
                }
+               getPa().getPCentrale().getLe()[2].setData(getPa().getBibliotheque().adherentRetardataire());
                getPa().getPCentrale().getLe()[2].getTable().refresh();
                getPa().getPCentrale().getLe()[3].setData(getPa().getBibliotheque().livreEmprunter());
                getPa().getPCentrale().getLe()[3].getTable().refresh();
@@ -267,6 +264,7 @@ public class FicheAdherent extends Fiche{
                    emprunter[2].setDisable(false);
                    list.get(2).setEditable(true);
                }
+                getPa().getPCentrale().getLe()[2].setData(getPa().getBibliotheque().adherentRetardataire());
                getPa().getPCentrale().getLe()[2].getTable().refresh();
                getPa().getPCentrale().getLe()[3].setData(getPa().getBibliotheque().livreEmprunter());
                getPa().getPCentrale().getLe()[3].getTable().refresh();
@@ -293,6 +291,7 @@ public class FicheAdherent extends Fiche{
                }
                getPa().getPCentrale().getLe()[1].setData(getPa().getBibliotheque().adherentRetardataire());
                getPa().getPCentrale().getLe()[1].getTable().refresh();
+                getPa().getPCentrale().getLe()[2].setData(getPa().getBibliotheque().adherentRetardataire());
                getPa().getPCentrale().getLe()[2].getTable().refresh();
                getPa().getPCentrale().getLe()[3].setData(getPa().getBibliotheque().livreEmprunter());
                getPa().getPCentrale().getLe()[3].getTable().refresh();
@@ -320,6 +319,7 @@ public class FicheAdherent extends Fiche{
                }
                getPa().getPCentrale().getLe()[1].setData(getPa().getBibliotheque().adherentRetardataire());
                getPa().getPCentrale().getLe()[1].getTable().refresh();
+                getPa().getPCentrale().getLe()[2].setData(getPa().getBibliotheque().adherentRetardataire());
                getPa().getPCentrale().getLe()[2].getTable().refresh();
                getPa().getPCentrale().getLe()[3].setData(getPa().getBibliotheque().livreEmprunter());
                getPa().getPCentrale().getLe()[3].getTable().refresh();
@@ -347,6 +347,7 @@ public class FicheAdherent extends Fiche{
                }
                getPa().getPCentrale().getLe()[1].setData(getPa().getBibliotheque().adherentRetardataire());
                getPa().getPCentrale().getLe()[1].getTable().refresh();
+               getPa().getPCentrale().getLe()[2].setData(getPa().getBibliotheque().adherentRetardataire());
                getPa().getPCentrale().getLe()[2].getTable().refresh();
                getPa().getPCentrale().getLe()[3].setData(getPa().getBibliotheque().livreEmprunter());
                getPa().getPCentrale().getLe()[3].getTable().refresh();
