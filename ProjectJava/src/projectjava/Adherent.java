@@ -123,25 +123,6 @@ public class Adherent implements Serializable {
         return emprunt_date;
     }
     
-    /*public boolean emprunter(Livre livre)
-    {
-        if (this.getNb_emprunt()>=3)
-        {
-            return false;
-        }
-        if (livre.getNb_exemplaire_dispo()==0)
-        {
-            return false;
-        }
-        
-        this.emprunt_livre[this.getNb_emprunt()]=livre;
-        this.emprunt_date[this.getNb_emprunt()]=Calendar.getInstance();
-        this.getEmprunt_date()[this.getNb_emprunt()].add(Calendar.DAY_OF_MONTH, 15);
-        this.nb_emprunt++;
-        livre.decNb_exemplaire_dispo();
-        return true;
-    }*/
-    
     public boolean emprunter(Livre livre,Calendar c)
     {
         if (this.getNb_emprunt()>=3)
