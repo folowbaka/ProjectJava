@@ -1,6 +1,7 @@
 /**
  *
  * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
+ * Classe modelisant un adherent
  */
 package projectjava;
 
@@ -46,27 +47,47 @@ public class Adherent implements Serializable {
     
     public Adherent(int id, String nom, String prenom, String profession)
     {
-        this(id,nom,prenom,nom.toLowerCase().replace(" ", "_")+"."+prenom.toLowerCase().replace(" ", "")+"@bibli.net",profession,new Adresse(String.valueOf(id),"rue du Random","93800","Epinay Sur Seine"));
+        this(id,nom,prenom,nom.toLowerCase().replace(" ", "_")+"."+prenom.toLowerCase().replace(" ", "_")+"@bibli.net",profession,new Adresse(String.valueOf(id),"rue du Random","93800","Epinay Sur Seine"));
     }
     
-    public String getId()
+    public void setAdresse(Adresse adresse)
     {
-        return id;
+        this.adresse = adresse;
     }
-
+        
     public void setId(String id)
     {
         this.id = id;
     }
-
+    
+    public void setEmail(String email)
+    {
+        this.email = email;
+    }
+    
+    public void setPrenom(String prenom)
+    {
+        this.prenom = prenom;
+    }
+    
+    public void setNom(String nom)
+    {
+        this.nom = nom;
+    }
+    
+    public void setProfession(String profession)
+    {
+        this.profession = profession;
+    }
+    
     public String getNom()
     {
         return nom;
     }
 
-    public void setNom(String nom)
+    public String getId()
     {
-        this.nom = nom;
+        return id;
     }
 
     public String getPrenom()
@@ -74,29 +95,14 @@ public class Adherent implements Serializable {
         return prenom;
     }
 
-    public void setPrenom(String prenom)
-    {
-        this.prenom = prenom;
-    }
-
     public String getEmail()
     {
         return email;
     }
 
-    public void setEmail(String email)
-    {
-        this.email = email;
-    }
-
     public String getProfession()
     {
         return profession;
-    }
-
-    public void setProfession(String profession)
-    {
-        this.profession = profession;
     }
 
     public int getNb_emprunt()
@@ -107,11 +113,6 @@ public class Adherent implements Serializable {
     public Adresse getAdresse()
     {
         return adresse;
-    }
-
-    public void setAdresse(Adresse adresse)
-    {
-        this.adresse = adresse;
     }
     
     public Livre[] getEmprunt_livre() {

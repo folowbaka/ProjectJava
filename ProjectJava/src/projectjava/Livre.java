@@ -1,6 +1,7 @@
 /**
  *
  * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
+ * Classe modelisant un Livre de bibliotheque
  */
 package projectjava;
 
@@ -16,7 +17,7 @@ public class Livre implements Serializable {
     private int nb_exemplaire_dispo;
     private int code2;
     
-     public Livre()
+    public Livre()
     {
         this.titre=null;
         this.auteur=null;
@@ -33,7 +34,7 @@ public class Livre implements Serializable {
         }
         while(code1.length()<3)
         {
-            code1=code1+"#";
+            code1="#"+code1;
         }
         this.titre=Perso.toTitleCase(titre);
         this.auteur=Perso.toTitleCase(auteur);
@@ -44,28 +45,22 @@ public class Livre implements Serializable {
         this.bibli=bibli;
     }
     
+    // Utile uniquement pour Test.java
     public Livre(String titre, String auteur, String code, Bibliotheque bibli)
     {
         this(titre,auteur,code,(new Random()).nextInt(100)+1,bibli);
     }
-
-    public Bibliotheque getBibli()
-    {
-        return this.bibli;
-    }
     
-    public String getTitre()
-    {
-        return this.titre;
-    }
     public void setTitre(String titre)
     {
         this.titre=titre;
     }
+    
     public void setAuteur(String auteur)
     {
         this.auteur=auteur;
     }
+    
     public void setTotal(int total)
     {
         if(total-this.nb_exemplaire_total+this.nb_exemplaire_dispo>=0)
@@ -75,6 +70,7 @@ public class Livre implements Serializable {
         }
         
     }
+    
     public void setDispo(int dispo)
     {
         if(dispo>0)
@@ -83,6 +79,17 @@ public class Livre implements Serializable {
             this.nb_exemplaire_dispo=dispo;
         }
     }
+    
+    public Bibliotheque getBibli()
+    {
+        return this.bibli;
+    }
+    
+    public String getTitre()
+    {
+        return this.titre;
+    }
+    
     public String getAuteur()
     {
         return this.auteur;
@@ -126,17 +133,17 @@ public class Livre implements Serializable {
         }
         return false;
     }
-    
-    public String toString()
-    {
-        return "["+this.code1+"-"+String.format("%03d",this.code2)+"]"+this.titre+" : "+this.auteur+" "+String.valueOf(this.nb_exemplaire_dispo)+"/"+String.valueOf(this.nb_exemplaire_total);
-    }
 
-    void incNb_exemplaire_dispo() {
+    public void incNb_exemplaire_dispo() {
         
         if(this.nb_exemplaire_dispo<this.nb_exemplaire_total)
         {
             this.nb_exemplaire_dispo++;
         }
+    }
+    
+    public String toString()
+    {
+        return "["+this.code1+"-"+String.format("%03d",this.code2)+"]"+this.titre+" : "+this.auteur+" "+String.valueOf(this.nb_exemplaire_dispo)+"/"+String.valueOf(this.nb_exemplaire_total);
     }
 }

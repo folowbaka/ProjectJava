@@ -1,6 +1,7 @@
 /**
  *
  * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
+ * Classe modelisant une adresse postale
  */
 package projectjava;
 
@@ -19,47 +20,47 @@ public class Adresse implements Serializable {
         this.setCp(cp);
         this.setVille(Perso.toTitleCase(ville));
     }
-
-    public String getNumero() 
-    {
-        return numero;
-    }
     
     public void setNumero(String numero)
     {
         this.numero = numero;
     }
-
-    public String getRue() 
+    
+    public void setVille(String ville)
     {
-        return rue;
+        this.ville = ville;
     }
     
     public void setRue(String rue)
     {
         this.rue = rue;
     }
-
-    public String getCp()
-    {
-        return cp;
-    }
-
+    
     public void setCp(String cp)
     {
         this.cp = cp;
     }
-
+    
+    public String getCp()
+    {
+        return cp;
+    }
+    
+    public String getRue() 
+    {
+        return rue;
+    }
+    
     public String getVille() 
     {
         return ville;
     }
 
-    public void setVille(String ville)
+    public String getNumero() 
     {
-        this.ville = ville;
+        return numero;
     }
-    
+
     public String toString()
     {
         return getNumero()+" "+getRue()+" "+cp+" "+ville;

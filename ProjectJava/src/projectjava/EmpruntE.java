@@ -6,46 +6,50 @@ package projectjava;
 
 
 public class EmpruntE {
-    public String titre;
-    public String s2;
-    public String s3;
-    public String s4;
+    private String titre;
+    private String nom;
+    private String prenom;
+    private String date;
 
-    public EmpruntE(String s1,String s2,String s3,String s4)
-    {
-        this.titre=s1;
-        this.s2=s2;
-        this.s3=s3;
-        this.s4=s4;
-    }
-    
+        
     public EmpruntE()
     {
         this.titre=null;
-        this.s2=null;
-        this.s3=null;
-        this.s4=null;
+        this.nom=null;
+        this.prenom=null;
+        this.date=null;
     }
     
-    public String toString()
+    public EmpruntE(String titre,String nom,String prenom,String date)
     {
-        return titre+s2+s3+s4;
+        this.titre=titre;
+        this.nom=nom;
+        this.prenom=prenom;
+        this.date=date;
     }
     
     public String getTitre()
     {
         return this.titre;
     }
-    public String getS2()
+    
+    public String getNom()
     {
-        return this.s2;
+        return this.nom;
     }
-    public String getS3()
+    
+    public String getPrenom()
     {
-        return this.s3;
+        return this.prenom;
     }
-    public String getS4()
+    
+    public String getDate()
     {
-        return this.s4;
+        return this.date;
+    }
+    
+    public String toString()
+    {
+        return titre+" "+nom+" "+prenom+" "+date;
     }
 }

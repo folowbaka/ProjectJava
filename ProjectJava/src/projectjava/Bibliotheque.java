@@ -1,6 +1,7 @@
 /**
  *
  * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
+ * Classe modelisant le focntionnement d'un bibliotheque
  */
 package projectjava;
 
@@ -28,15 +29,56 @@ public class Bibliotheque implements Serializable {
         current_id=0;
     }
     
+    public ArrayList<Adherent> getListAdherent()
+    {
+        return this.adherent;
+    }
+    
+    public ArrayList<Livre> getListLivre()
+    {
+        return this.livre;
+    }
+    
+    public int getID()
+    {
+        return this.current_id;
+    }
+    
+    public int getNbAdherent()
+    {
+        return this.adherent.size();
+    }
+    
+    public int getNbLivre_Type(String type)
+    {
+        int compteur=0;
+        
+        for(Livre livre_ : this.livre)
+        {
+            if (livre_.getCode1().equals(type))
+            {
+                compteur=max(compteur,livre_.getCode2());
+            }
+        }
+        
+        return compteur;
+    }
+    
     public void addLivre(Livre livre)
     {
-        this.livre.add(livre);
+        if(!this.livre.contains(livre))
+        {
+            this.livre.add(livre);
+        }
     }
     
     public void addAdherent(Adherent adherent)
     {
-        this.adherent.add(adherent);
-        current_id++;
+        if(!this.adherent.contains(adherent))
+        {
+            this.adherent.add(adherent);
+            current_id++;
+        }
     }
     
     public void removeAdherent(Adherent adh)
@@ -49,22 +91,6 @@ public class Bibliotheque implements Serializable {
             this.adherent.remove(adh);
         }
     }
-     public int foundAdherent(Adherent adh)
-    {
-        int i=0;
-        if(this.adherent.contains(adh))
-        {
-          for(Adherent ad:this.adherent)
-            {
-                if(ad==adh)
-                {
-                    i++;
-                }
-            }
-        }
-        return i;
-    }
-    
     public void removeAdherent_id(String id)
     {
         for(Adherent adh:this.adherent)
@@ -105,123 +131,15 @@ public class Bibliotheque implements Serializable {
         }
     }
     
-    public int getNbLivre_Type(String type)
-    {
-        int compteur=0;
-        
-        for(Livre livre_ : this.livre)
-        {
-            if (livre_.getCode1().equals(type))
-            {
-                compteur=max(compteur,livre_.getCode2());
-            }
-        }
-        
-        return compteur;
-    }
-    
-    public int getNbAdherent()
-    {
-        return this.adherent.size();
-    }
-    public ArrayList<Adherent> getListAdherent()
-    {
-        return this.adherent;
-    }
-    
-    public ArrayList<Livre> getListLivre()
-    {
-        return this.livre;
-    }
-    
-    public ArrayList<EmpruntE> livreEmprunter()
-    {
-        ArrayList<EmpruntE> resultat=new ArrayList<EmpruntE>();
-        SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
-
-        for(Livre livre_:this.livre)
-        {
-            if(livre_.getNb_exemplaire_total()!=livre_.getNb_exemplaire_dispo())
-            {
-                for(Adherent adh:this.search_possesseur_livre(livre_))
-                {
-                    if(adh.emprunteLivre(livre_)!=null)
-                    {
-                        resultat.add(new EmpruntE(livre_.getTitre(),adh.getNom(),adh.getPrenom(),format1.format(adh.emprunteLivre(livre_).getTime())));                      
-                    }
-                }
-            }
-        }
-        return resultat;
-    }
-        
-    public int getID()
-    {
-        return this.current_id;
-    }
-    
     public void rendreLivre(Livre livre_)
     {
         if(this.livre.contains(livre_))
         {
-            this.livre.get(this.livre.indexOf(livre_)).incNb_exemplaire_dispo();
+            livre_.incNb_exemplaire_dispo();
         }
     }
     
-    public static Bibliotheque loadBibliotheque(String file)
-    {
-        try {
-            ObjectInputStream reader = new ObjectInputStream(new FileInputStream(file));
-            return (Bibliotheque) reader.readObject();
-        } catch (IOException ex) {
-            Logger.getLogger(Bibliotheque.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Bibliotheque.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return null;
-    }
-    
-    public boolean saveBibliotheque(String file)
-    {
-        ObjectOutputStream  writer;
-        try {
-            writer = new ObjectOutputStream(new FileOutputStream(file));
-                writer.writeObject(this);
-            writer.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Bibliotheque.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-        
-        return true;
-    }
-    
-    public String Livre_toString()
-    {
-        String result=new String();
-        
-        for(Livre livre_ : this.livre)
-        {
-            result+=livre_.toString()+"\n";
-        }
-        
-        return result;
-    }
-    
-    public String Adherent_toString()
-    {
-        String result=new String();
-        
-        for(Adherent adherent_ : this.adherent)
-        {
-            result+=adherent.toString()+"\n";
-        }
-        
-        return result;
-    }
-    
-    public ArrayList<Adherent> search_possesseur_livre(Livre l)
+    public ArrayList<Adherent> search_possesseur_livre(Livre livre_)
     {
         ArrayList<Adherent> resultat=new ArrayList<Adherent>();
         Livre[] temp;
@@ -230,7 +148,7 @@ public class Bibliotheque implements Serializable {
         {
             temp=adh.getEmprunt_livre();
             
-            if(temp[0]!=null&&temp[0].getCode().equals(l.getCode())||temp[1]!=null&&temp[1].getCode().equals(l.getCode())||temp[2]!=null&&temp[2].getCode().equals(l.getCode()))
+            if(temp[0]!=null&&temp[0].getCode().equals(livre_.getCode())||temp[1]!=null&&temp[1].getCode().equals(livre_.getCode())||temp[2]!=null&&temp[2].getCode().equals(livre_.getCode()))
             {
                 resultat.add(adh);
             }
@@ -287,6 +205,21 @@ public class Bibliotheque implements Serializable {
         return resultat;
     }
     
+    public ArrayList<Livre> search_livre_genre(String genre) 
+    {
+        ArrayList<Livre> resultat=new ArrayList<Livre>();
+        
+        for (Livre livre_:this.livre)
+        {
+            if(livre_.getCode1().toLowerCase().contains(genre.toLowerCase()))
+            {
+                resultat.add(livre_);
+            }
+        }
+        
+        return resultat;
+    }
+    
     public ArrayList<Adherent> search_adherent(String personne)
     {
         ArrayList<Adherent> resultat=new ArrayList<Adherent>();
@@ -332,6 +265,22 @@ public class Bibliotheque implements Serializable {
         return resultat;
     }
     
+    public int foundAdherent(Adherent adh)
+    {
+        int i=0;
+        if(this.adherent.contains(adh))
+        {
+            for(Adherent ad:this.adherent)
+            {
+                if(ad==adh)
+                {
+                    i++;
+                }
+            }
+        }
+        return i;
+    }
+        
     public ArrayList<Adherent> adherentRetardataire()
     {
         ArrayList<Adherent> resultat=new ArrayList<Adherent>();
@@ -344,18 +293,78 @@ public class Bibliotheque implements Serializable {
         }
         return resultat;
     }
+    
+    public ArrayList<EmpruntE> livreEmprunter()
+    {
+        ArrayList<EmpruntE> resultat=new ArrayList<EmpruntE>();
+        SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
 
-    public ArrayList<Livre> search_livre_genre(String genre) {
-        ArrayList<Livre> resultat=new ArrayList<Livre>();
-        
-        for (Livre livre_:this.livre)
+        for(Livre livre_:this.livre)
         {
-            if(livre_.getCode1().toLowerCase().contains(genre.toLowerCase()))
+            if(livre_.getNb_exemplaire_total()!=livre_.getNb_exemplaire_dispo())
             {
-                resultat.add(livre_);
+                for(Adherent adh:this.search_possesseur_livre(livre_))
+                {
+                    if(adh.emprunteLivre(livre_)!=null)
+                    {
+                        resultat.add(new EmpruntE(livre_.getTitre(),adh.getNom(),adh.getPrenom(),format1.format(adh.emprunteLivre(livre_).getTime())));                      
+                    }
+                }
             }
         }
-        
         return resultat;
+    }
+        
+    public static Bibliotheque loadBibliotheque(String file)
+    {
+        try {
+            ObjectInputStream reader = new ObjectInputStream(new FileInputStream(file));
+            return (Bibliotheque) reader.readObject();
+        } catch (IOException ex) {
+            Logger.getLogger(Bibliotheque.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Bibliotheque.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+    }
+    
+    public boolean saveBibliotheque(String file)
+    {
+        ObjectOutputStream  writer;
+        try {
+            writer = new ObjectOutputStream(new FileOutputStream(file));
+                writer.writeObject(this);
+            writer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Bibliotheque.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public String Livre_toString()
+    {
+        String result=new String();
+        
+        for(Livre livre_ : this.livre)
+        {
+            result+=livre_.toString()+"\n";
+        }
+        
+        return result;
+    }
+    
+    public String Adherent_toString()
+    {
+        String result=new String();
+        
+        for(Adherent adh : this.adherent)
+        {
+            result+=adh.toString()+"\n";
+        }
+        
+        return result;
     }
 }

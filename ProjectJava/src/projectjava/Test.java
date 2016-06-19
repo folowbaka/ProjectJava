@@ -1,12 +1,11 @@
 /**
  *
  * @author ABDELLAH Ghiles, DIEU Arnaud, GALENTE David
+ * Fichier d'initialisation de la bdd pour test
  */
 package projectjava;
 
-import static projectjava.Bibliotheque.loadBibliotheque;
-
-public class Projet {
+public class Test {
 
     public static void main(String[] args) {
         Bibliotheque bibli_test=new Bibliotheque();
