@@ -8,61 +8,58 @@ package projectjava;
 import java.io.Serializable;
 
 public class Adresse implements Serializable {
+
+    //Variables qui caractérisent une adresse
     private String numero;
     private String rue;
     private String cp;
     private String ville;
-    
-    public Adresse(String numero, String rue, String cp, String ville)
-    {
+
+    //Constructeur à paramètres
+    public Adresse(String numero, String rue, String cp, String ville) {
         this.setNumero(numero);
         this.setRue(rue);
         this.setCp(cp);
         this.setVille(Perso.toTitleCase(ville));
     }
-    
-    public void setNumero(String numero)
-    {
+
+    /*
+        Getters et Setters des variables de la classe
+     */
+    public void setNumero(String numero) {
         this.numero = numero;
     }
-    
-    public void setVille(String ville)
-    {
+
+    public void setVille(String ville) {
         this.ville = ville;
     }
-    
-    public void setRue(String rue)
-    {
+
+    public void setRue(String rue) {
         this.rue = rue;
     }
-    
-    public void setCp(String cp)
-    {
+
+    public void setCp(String cp) {
         this.cp = cp;
     }
-    
-    public String getCp()
-    {
+
+    public String getCp() {
         return cp;
     }
-    
-    public String getRue() 
-    {
+
+    public String getRue() {
         return rue;
     }
-    
-    public String getVille() 
-    {
+
+    public String getVille() {
         return ville;
     }
 
-    public String getNumero() 
-    {
+    public String getNumero() {
         return numero;
     }
 
-    public String toString()
-    {
-        return getNumero()+" "+getRue()+" "+cp+" "+ville;
+    //Méthode d'affichage/debug
+    public String toString() {
+        return getNumero() + " " + getRue() + " " + cp + " " + ville;
     }
 }
